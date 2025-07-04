@@ -26,11 +26,21 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
+    const myForm = document.getElementById("contact-form");
+    const formData = new FormData(myForm);
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
+      })
+      .catch((error) => alert(error));
     // Simulate form submission
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
-    });
 
     // Reset form
     setFormData({ name: "", email: "", subject: "", message: "" });
@@ -178,7 +188,12 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="animate-fade-in-up">
               <Card className="p-8 border-none shadow-lg bg-white">
-                <form className="space-y-6" netlify>
+                <form
+                  onSubmit={handleSubmit}
+                  className="space-y-6"
+                  netlify
+                  id="contact-form"
+                >
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label
