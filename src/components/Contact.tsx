@@ -178,7 +178,7 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="animate-fade-in-up">
               <Card className="p-8 border-none shadow-lg bg-white">
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form className="space-y-6" netlify>
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label
