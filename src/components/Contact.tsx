@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,6 +13,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { profileData } from "@/data/profile";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -21,7 +22,30 @@ const Contact = () => {
     subject: "",
     message: "",
   });
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
   const { toast } = useToast();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -57,41 +81,59 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: <Mail className="text-blue-600" size={24} />,
+      icon: <Mail className="text-blue-600 dark:text-blue-400" size={24} />,
       title: "Email",
-      value: "shameersalnaz@gmail.com",
-      link: "mailto:shameersalnaz@gmail.com",
+      value: profileData.email,
+      link: `mailto:${profileData.email}`,
     },
     {
-      icon: <Phone className="text-green-600" size={24} />,
+      icon: <Phone className="text-green-600 dark:text-green-400" size={24} />,
       title: "Phone",
-      value: "+91 90******89",
-      link: "tel:+9190******89",
+      value: profileData.phone || "",
+      link: profileData.phone
+        ? `tel:${profileData.phone.replace(/\s/g, "")}`
+        : null,
     },
     {
-      icon: <MapPin className="text-red-600" size={24} />,
+      icon: <MapPin className="text-red-600 dark:text-red-400" size={24} />,
       title: "Location",
-      value: "Thiruvananthapuram, Kerala, India",
+      value: profileData.location,
       link: null,
     },
     {
-      icon: <Linkedin className="text-blue-700" size={24} />,
+      icon: <Linkedin className="text-blue-700 dark:text-blue-400" size={24} />,
       title: "LinkedIn",
-      value: "/in/shameersn",
-      link: "https://linkedin.com/in/shameersn",
+      value:
+        profileData.socialLinks
+          .find((s) => s.platform === "LinkedIn")
+          ?.url.split("/")
+          .pop() || "",
+      link:
+        profileData.socialLinks.find((s) => s.platform === "LinkedIn")?.url ||
+        null,
     },
   ];
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section
+      id="contact"
+      ref={sectionRef}
+      className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-500"
+    >
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+          <div
+            className={`text-center mb-16 transition-all duration-1000 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
               Get In Touch
             </h2>
-            <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-4"></div>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
               Ready to discuss your next project or explore collaboration
               opportunities? I'd love to hear from you.
             </p>
@@ -99,7 +141,13 @@ const Contact = () => {
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Information */}
-            <div className="animate-fade-in-up">
+            <div
+              className={`transition-all duration-1000 delay-200 ${
+                isVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-10"
+              }`}
+            >
               <div className="mb-8">
                 <h3 className="text-2xl font-bold mb-4 text-gray-900 flex items-center">
                   <MessageCircle className="mr-3 text-primary" size={28} />
@@ -120,7 +168,7 @@ const Contact = () => {
                 {contactInfo.map((info, index) => (
                   <Card
                     key={index}
-                    className="p-4 hover:shadow-md transition-all duration-300 border-none bg-gradient-to-br from-gray-50 to-white"
+                    className="p-4 hover:shadow-xl hover:scale-105 transition-all duration-300 border-none bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm group"
                   >
                     <div className="flex items-center">
                       {info.icon}
@@ -156,7 +204,7 @@ const Contact = () => {
                 ))}
               </div>
 
-              <Card className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 border-none">
+              <Card className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-none shadow-lg">
                 <h4 className="font-bold text-gray-900 mb-3">
                   What I Can Help With
                 </h4>
@@ -186,8 +234,14 @@ const Contact = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="animate-fade-in-up">
-              <Card className="p-8 border-none shadow-lg bg-white">
+            <div
+              className={`transition-all duration-1000 delay-300 ${
+                isVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 translate-x-10"
+              }`}
+            >
+              <Card className="p-8 border-none shadow-xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
                 <form
                   onSubmit={handleSubmit}
                   className="space-y-6"
@@ -271,9 +325,16 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full">
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="w-full group hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl"
+                  >
                     Send Message
-                    <Send size={18} className="ml-2" />
+                    <Send
+                      size={18}
+                      className="ml-2 group-hover:translate-x-1 transition-transform"
+                    />
                   </Button>
                 </form>
               </Card>

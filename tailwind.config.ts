@@ -125,6 +125,12 @@ export default {
         "fade-in": "fade-in 0.6s ease-out",
         "fade-in-up": "fade-in-up 0.6s ease-out",
         "scale-in": "scale-in 0.5s ease-out",
+        "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+      },
+      transitionDelay: {
+        "1000": "1000ms",
+        "1500": "1500ms",
+        "2000": "2000ms",
       },
     },
   },
