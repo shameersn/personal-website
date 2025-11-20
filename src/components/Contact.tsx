@@ -83,17 +83,18 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-24 bg-slate-50 dark:bg-slate-900">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
               Get In Touch
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ready to discuss your next project or explore collaboration
-              opportunities? I'd love to hear from you.
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              Open to discussing technical consultation, architecture review,
+              and leadership opportunities. Please feel free to reach out for
+              professional inquiries.
             </p>
           </div>
 
@@ -101,18 +102,20 @@ const Contact = () => {
             {/* Contact Information */}
             <div className="animate-fade-in-up">
               <div className="mb-8">
-                <h3 className="text-2xl font-bold mb-4 text-gray-900 flex items-center">
+                <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white flex items-center">
                   <MessageCircle className="mr-3 text-primary" size={28} />
-                  Let's Start a Conversation
+                  Professional Consultation
                 </h3>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  Whether you're looking to build something new, scale existing
-                  systems, or need technical leadership for your team, I'm here
-                  to help turn your vision into reality.
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                  I am available for consultation on enterprise architecture,
+                  technical leadership, and software development initiatives.
+                  Whether you are building new systems, modernizing existing
+                  infrastructure, or seeking technical guidance, I am here to
+                  provide strategic insights and practical solutions.
                 </p>
-                <p className="text-gray-600 leading-relaxed">
-                  I typically respond within 24 hours and am always excited to
-                  discuss new challenges and opportunities.
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                  I respond to all professional inquiries within 24 hours and
+                  welcome opportunities to discuss complex technical challenges.
                 </p>
               </div>
 
@@ -120,12 +123,12 @@ const Contact = () => {
                 {contactInfo.map((info, index) => (
                   <Card
                     key={index}
-                    className="p-4 hover:shadow-md transition-all duration-300 border-none bg-gradient-to-br from-gray-50 to-white"
+                    className="p-4 hover:shadow-lg transition-all duration-300 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800"
                   >
                     <div className="flex items-center">
                       {info.icon}
                       <div className="ml-3">
-                        <div className="font-semibold text-gray-900 text-sm">
+                        <div className="font-semibold text-gray-900 dark:text-white text-sm">
                           {info.title}
                         </div>
                         {info.link ? (
@@ -146,7 +149,7 @@ const Contact = () => {
                             {info.value}
                           </a>
                         ) : (
-                          <div className="text-gray-600 text-sm">
+                          <div className="text-gray-600 dark:text-gray-300 text-sm">
                             {info.value}
                           </div>
                         )}
@@ -156,30 +159,30 @@ const Contact = () => {
                 ))}
               </div>
 
-              <Card className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 border-none">
-                <h4 className="font-bold text-gray-900 mb-3">
-                  What I Can Help With
+              <Card className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-700 border border-blue-100 dark:border-slate-700">
+                <h4 className="font-bold text-gray-900 dark:text-white mb-3">
+                  Areas of Expertise
                 </h4>
-                <ul className="space-y-2 text-gray-600">
+                <ul className="space-y-2 text-gray-600 dark:text-gray-300">
                   <li className="flex items-start">
                     <span className="text-primary mr-2 mt-1">•</span>
-                    Software Architecture & System Design
+                    Enterprise Software Architecture & System Design
                   </li>
                   <li className="flex items-start">
                     <span className="text-primary mr-2 mt-1">•</span>
-                    Technical Leadership & Team Building
+                    Technical Leadership & Engineering Team Development
                   </li>
                   <li className="flex items-start">
                     <span className="text-primary mr-2 mt-1">•</span>
-                    Full-Stack Development Projects
+                    Full-Stack Application Development & Modernization
                   </li>
                   <li className="flex items-start">
                     <span className="text-primary mr-2 mt-1">•</span>
-                    Cloud Migration & DevOps Strategy
+                    Cloud Infrastructure & DevOps Strategy
                   </li>
                   <li className="flex items-start">
                     <span className="text-primary mr-2 mt-1">•</span>
-                    Technology Consulting & Code Reviews
+                    Technical Consulting & Architecture Review
                   </li>
                 </ul>
               </Card>
@@ -187,7 +190,7 @@ const Contact = () => {
 
             {/* Contact Form */}
             <div className="animate-fade-in-up">
-              <Card className="p-8 border-none shadow-lg bg-white">
+              <Card className="p-8 border border-slate-200 dark:border-slate-700 shadow-xl bg-white dark:bg-slate-800">
                 <form
                   onSubmit={handleSubmit}
                   className="space-y-6"

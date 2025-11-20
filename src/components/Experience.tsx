@@ -8,97 +8,185 @@ const Experience = () => {
       title: "Technology Architect",
       company: "Experion Technologies",
       location: "Trivandrum, Kerala, India",
-      period: "2020 - Present",
+      period: "June 2025 - Present",
       type: "Full-time",
       description:
-        "Leading architecture decisions for  applications serving thousands of users. Designed and implemented microservices architecture that improved system scalability.",
+        "Leading enterprise-level architectural decisions and technical strategy for mission-critical applications. Focused on scalability, performance optimization, and engineering excellence across multiple product lines.",
       achievements: [
-        "Led a team of 15+ developers across multiple projects",
-        "Reduced system downtime and improved performance by 50%",
-        "Implemented DevOps practices reducing deployment time",
-        "Mentored 10+ junior developers into senior roles",
+        "Provide strategic technical leadership for multiple concurrent product initiatives",
+        "Design and implement cloud-native architectures leveraging AWS infrastructure",
+        "Establish enterprise-wide coding standards, best practices, and development frameworks",
+        "Lead technical governance through architecture reviews and senior-level mentorship",
       ],
       technologies: [
         "AWS",
         "NodeJS",
-        "NextJS",
         "ReactJS",
+        "React Native",
+        "PostgreSQL",
+        "MongoDB",
+        "Kafka",
+        "System Design",
+      ],
+    },
+    {
+      title: "Software Architect",
+      company: "Experion Technologies",
+      location: "Trivandrum, Kerala, India",
+      period: "March 2023 - June 2025",
+      type: "Full-time",
+      description:
+        "Led a 20-member engineering team in architecting and delivering a comprehensive healthcare platform modernization initiative, eliminating technical debt and establishing scalable infrastructure.",
+      achievements: [
+        "Successfully delivered version 2.0 encompassing 6 web portals (ReactJS) and mobile application (React Native)",
+        "Re-architected and optimized NodeJS monolith serving 700+ API endpoints, significantly improving performance and maintainability",
+        "Designed and implemented high-availability clusters for Cassandra, Kafka, MongoDB, and Elasticsearch",
+        "Led Apache Spark migration from version 2.0 to 3.0, enhancing data processing capabilities",
+        "Integrated and managed 15+ enterprise third-party services including Zoom, Stripe, Twilio, SES, OneSignal, and Avalara",
+      ],
+      technologies: [
+        "ReactJS",
+        "React Native",
+        "NodeJS",
         "PostgreSQL",
         "Cassandra",
-        "kafka",
+        "Kafka",
         "MongoDB",
+        "Elasticsearch",
+        "Apache Spark",
+        "AWS",
+      ],
+    },
+    {
+      title: "Associate Software Architect",
+      company: "Experion Technologies",
+      location: "Trivandrum, Kerala, India",
+      period: "July 2020 - March 2023",
+      type: "Full-time",
+      description:
+        "Directed engineering team in feature development and system optimization for enterprise applications. Specialized in full-stack architecture utilizing ReactJS, React Native, NodeJS, and PostgreSQL.",
+      achievements: [
+        "Architected and implemented enterprise-grade notification system leveraging AWS SNS, SQS, Lambda, and SES",
+        "Developed healthcare communication platform with Twilio integration supporting real-time audio/video capabilities",
+        "Established and delivered comprehensive technical training program, onboarding 50+ engineers in full-stack MERN development",
+        "Systematically reduced technical debt while improving application performance and maintainability",
+      ],
+      technologies: [
+        "ReactJS",
         "React Native",
-        "Snowflake",
+        "NodeJS",
+        "PostgreSQL",
+        "AWS Lambda",
+        "AWS SNS",
+        "AWS SQS",
+        "Twilio",
+        "Redis",
       ],
     },
     {
       title: "Technology Lead",
       company: "Experion Technologies",
-      location: "Thiruvananthapuram, Kerala, India",
-      period: "2018 - 2020",
+      location: "Trivandrum, Kerala, India",
+      period: "May 2019 - July 2020",
       type: "Full-time",
       description:
-        "Spearheaded the development of cloud applications and led a team of developers in building scalable solutions for  clients.",
+        "Directed the architecture and development of enterprise-grade REST APIs with comprehensive multi-tenant capabilities for educational technology platform. Led frontend development initiatives utilizing Angular framework.",
       achievements: [
-        "Architected and delivered major product releases",
-        "Improved application performance on ReactJS",
-        "Established coding standards and best practices",
-        "Led technical interviews and team expansion",
+        "Architected and implemented scalable REST API infrastructure supporting multi-tenant architecture",
+        "Developed high-performance Angular application leveraging Material Design and Reactive Forms paradigm",
+        "Implemented Redis-based caching strategy, significantly enhancing system performance",
+        "Contributed to organizational growth through technical interviews and recruitment initiatives",
       ],
       technologies: [
         "NodeJS",
         "Angular",
-        "ExpressJS",
         "MySQL",
+        "Redis",
+        "ExpressJS",
         "AWS",
-        "Serverless",
-        "Docker",
         "TypeScript",
+        "Angular Material",
+      ],
+    },
+    {
+      title: "Senior Software Engineer",
+      company: "Experion Technologies",
+      location: "Trivandrum, Kerala, India",
+      period: "January 2018 - April 2019",
+      type: "Full-time",
+      description:
+        "Executed critical application modernization initiatives and delivered projects featuring real-time communication capabilities.",
+      achievements: [
+        "Successfully migrated Angular 4 application to Angular 6, achieving significant performance improvements",
+        "Assumed ownership and delivered Angular 4 project featuring Tokbox integration for real-time audio/video communication",
+        "Enhanced application performance and optimized user experience through systematic improvements",
+        "Provided technical mentorship to junior engineers on Angular best practices and design patterns",
+      ],
+      technologies: [
+        "Angular",
+        "TypeScript",
+        "NodeJS",
+        "Tokbox",
+        "WebRTC",
+        "RxJS",
       ],
     },
     {
       title: "Full Stack Developer",
-      company: "Tilt Labs",
-      location: "Thiruvananthapuram, Kerala, India",
-      period: "2016 - 2017",
+      company: "TILTLABS",
+      location: "Trivandrum, Kerala, India",
+      period: "July 2016 - December 2017",
       type: "Full-time",
       description:
-        "Developed full-stack web applications and mobile solutions for startup clients, focusing on rapid prototyping and scalable solutions.",
+        "Developed full-stack solutions for data-intensive applications utilizing Angular 4, NodeJS, and MySQL. Contributed to multiple client projects across various technology stacks.",
       achievements: [
-        "Built 10+ web applications from concept to production",
-        "Reduced development time through reusable components",
-        "Implemented automated testing increasing code coverage to 90%",
-        "Collaborated with UX/UI teams to improve user experience",
+        "Developed and delivered big data applications leveraging Angular 4, NodeJS, and MySQL technologies",
+        "Enhanced API performance through strategic database optimizations and caching implementations",
+        "Extended AngularJS (1.X) application functionality utilizing NodeJS and Cassandra backend",
+        "Delivered multiple web applications utilizing PHP, OpenCart, and CodeIgniter frameworks",
       ],
-      technologies: ["PHP", "MySQL", "OpenCart", "CodeIgniter", "AngularJS"],
+      technologies: [
+        "Angular",
+        "AngularJS",
+        "NodeJS",
+        "MySQL",
+        "Cassandra",
+        "PHP",
+        "OpenCart",
+        "CodeIgniter",
+        "AWS",
+      ],
     },
     {
-      title: "Frontend Developer",
+      title: "Front End Developer",
       company: "Hash Include",
-      location: "Thiruvananthapuram, Kerala, India",
-      period: "2012 - 2016",
+      location: "Trivandrum, Kerala, India",
+      period: "March 2012 - June 2016",
       type: "Full-time",
       description:
-        "Developed and maintained software solutions, focusing on front end and user experience. Created responsive web applications and optimized performance.",
+        "Initiated professional career developing responsive web applications and static websites utilizing core web technologies.",
       achievements: [
-        "Optimized database queries reducing response time",
-        "Developed RESTful APIs serving 10K+ daily requests",
-        "Developed HTML5/CSS3 applications with responsive design",
-        "Started by creating web applications for IE8+ and older browsers",
+        "Developed numerous client websites utilizing HTML5, CSS3, SASS, jQuery, and JavaScript",
+        "Gained proficiency in CSS frameworks including Bootstrap, Foundation, and Materialize",
+        "Developed cross-platform mobile applications leveraging jQuery Mobile framework",
+        "Created interactive applications and games utilizing Facebook SDK integration",
       ],
       technologies: [
         "HTML5",
-        "CSS5",
-        "Bootstrap",
-        "Material Design",
+        "CSS3",
+        "SASS",
         "JavaScript",
         "jQuery",
+        "Bootstrap",
+        "Foundation",
+        "Materialize",
+        "jQuery Mobile",
       ],
     },
   ];
 
   return (
-    <section id="experience" className="py-20 bg-white dark:bg-gray-900">
+    <section id="experience" className="py-24 bg-slate-50 dark:bg-slate-900">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16 animate-fade-in-up">
@@ -106,9 +194,10 @@ const Experience = () => {
               Professional Experience
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-            <p className="text-xl text-gray-600 dark:text-gray-400">
-              13+ years of progressive experience in software development and
-              architecture
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              A comprehensive career spanning 13+ years with progressive
+              responsibilities in software engineering, architecture, and
+              technical leadership
             </p>
           </div>
 
@@ -121,7 +210,7 @@ const Experience = () => {
                 {/* Timeline dot */}
                 <div className="absolute left-6 w-4 h-4 bg-gray-600 dark:bg-gray-300 rounded-full border-4 border-white dark:border-gray-900 shadow-lg hidden md:block"></div>
 
-                <Card className="ml-0 md:ml-20 p-8 hover:shadow-lg transition-all duration-300 border-none bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700">
+                <Card className="ml-0 md:ml-20 p-8 hover:shadow-xl transition-all duration-300 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800">
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
                     <div className="mb-4 lg:mb-0">
                       <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">

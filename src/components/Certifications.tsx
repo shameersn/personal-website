@@ -11,7 +11,7 @@ const Certifications = () => {
       level: "Beginner",
       year: "2025",
       description:
-        "Foundational understanding of AWS AI/ML services, cloud computing concepts, and artificial intelligence implementations on AWS platform.",
+        "Demonstrated proficiency in AWS AI/ML services, cloud computing fundamentals, and implementation of artificial intelligence solutions on the AWS platform.",
       skills: [
         "AWS AI Services",
         "Machine Learning Basics",
@@ -25,17 +25,17 @@ const Certifications = () => {
   ];
 
   return (
-    <section id="certifications" className="py-20 bg-white dark:bg-gray-900">
+    <section id="certifications" className="py-24 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
-              Certifications
+              Professional Certifications
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Professional certifications that validate my expertise in cloud
-              computing and artificial intelligence
+              Industry-recognized certifications validating expertise in cloud
+              computing and artificial intelligence technologies
             </p>
           </div>
 
@@ -43,7 +43,7 @@ const Certifications = () => {
             {certifications.map((cert, index) => (
               <Card
                 key={index}
-                className="p-8 hover:shadow-lg transition-all duration-300 animate-scale-in bg-white dark:bg-gray-800 border-none"
+                className="p-8 hover:shadow-xl transition-all duration-300 animate-scale-in bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
               >
                 <div className="grid md:grid-cols-3 gap-8 items-center">
                   {/* Certification Image */}

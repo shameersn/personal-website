@@ -15,66 +15,91 @@ const Skills = () => {
   const skillCategories = [
     {
       title: "Programming/Markup Languages",
-      icon: <Code className="text-gray-600" size={32} />,
-      skills: ["JavaScript/TypeScript", "PHP", "Python", "Go", "HTML/CSS"],
+      icon: <Code className="text-gray-600 dark:text-gray-400" size={32} />,
+      skills: ["JavaScript", "TypeScript", "PHP", "Python", "HTML5", "CSS3"],
     },
     {
       title: "Frameworks & Libraries",
-      icon: <Zap className="text-gray-600" size={32} />,
+      icon: <Zap className="text-gray-600 dark:text-gray-400" size={32} />,
       skills: [
-        "React/NextJS",
+        "ReactJS",
+        "React Native",
         "NodeJS",
+        "Angular",
         "ExpressJS",
         "NestJS",
-        "Angular",
-        "Go Fiber",
+        "NextJS",
       ],
     },
     {
-      title: "Databases",
-      icon: <Database className="text-gray-600" size={32} />,
+      title: "Databases & Storage",
+      icon: <Database className="text-gray-600 dark:text-gray-400" size={32} />,
       skills: [
         "PostgreSQL",
-        "MongoDB",
-        "Redis",
         "MySQL",
-        "Elasticsearch",
+        "MongoDB",
         "Cassandra",
+        "Redis",
+        "Elasticsearch",
         "DynamoDB",
-        "Firebase",
+        "Snowflake",
       ],
     },
     {
       title: "Cloud & DevOps",
-      icon: <Cloud className="text-gray-600" size={32} />,
-      skills: ["AWS", "Docker", "Kafka", "CI/CD", "Terraform"],
-    },
-    {
-      title: "Mobile Development",
-      icon: <Smartphone className="text-gray-600" size={32} />,
-      skills: ["React Native", "Flutter"],
-    },
-    {
-      title: "Architecture & Design",
-      icon: <Settings className="text-gray-600" size={32} />,
+      icon: <Cloud className="text-gray-600 dark:text-gray-400" size={32} />,
       skills: [
-        "Microservices",
-        "System Design",
-        "API Design",
-        "Design Patterns",
-        "Event-Driven Architecture",
-        "Third-Party Integrations",
+        "AWS",
+        "AWS Lambda",
+        "AWS SNS/SQS",
+        "AWS SES",
+        "Docker",
+        "Kafka",
+        "Apache Spark",
+        "CI/CD",
       ],
     },
     {
+      title: "Mobile Development",
+      icon: (
+        <Smartphone className="text-gray-600 dark:text-gray-400" size={32} />
+      ),
+      skills: ["React Native", "jQuery Mobile", "Hybrid Apps"],
+    },
+    {
+      title: "Architecture & Design",
+      icon: <Settings className="text-gray-600 dark:text-gray-400" size={32} />,
+      skills: [
+        "Microservices",
+        "System Design",
+        "REST API Design",
+        "Multi-tenant Architecture",
+        "Event-Driven Architecture",
+        "Performance Optimization",
+      ],
+    },
+    // {
+    //   title: "Third-Party Integrations",
+    //   icon: <Settings className="text-gray-600 dark:text-gray-400" size={32} />,
+    //   skills: [
+    //     "Zoom",
+    //     "Stripe",
+    //     "Twilio",
+    //     "OneSignal",
+    //     "Avalara",
+    //     "Tokbox/WebRTC",
+    //     "Facebook SDK",
+    //   ],
+    // },
+    {
       title: "Leadership & Soft Skills",
-      icon: <Users className="text-gray-600" size={32} />,
+      icon: <Users className="text-gray-600 dark:text-gray-400" size={32} />,
       skills: [
         "Team Leadership",
-        "Mentoring",
-        "Project Management",
-        "Communication",
-        "Problem Solving",
+        "Mentoring & Training",
+        "Technical Strategy",
+        "Code Reviews",
+        "Agile Methodology",
       ],
     },
     {
@@ -85,20 +110,18 @@ const Skills = () => {
   ];
 
   return (
-    <section
-      id="skills"
-      className="py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-black"
-    >
+    <section id="skills" className="py-24 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
-              Skills & Expertise
+              Technical Expertise
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              A comprehensive skill set built over 13+ years of hands-on
-              experience in software development and architecture
+              Comprehensive technical proficiency developed through 13+ years of
+              progressive experience in enterprise software development and
+              architecture
             </p>
           </div>
 
@@ -106,7 +129,7 @@ const Skills = () => {
             {skillCategories.map((category, index) => (
               <Card
                 key={index}
-                className="p-6 hover:shadow-lg transition-all duration-300 animate-scale-in bg-white dark:bg-gray-800 border-none"
+                className="p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 animate-scale-in bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
               >
                 <div className="flex items-center mb-6">
                   {category.icon}
