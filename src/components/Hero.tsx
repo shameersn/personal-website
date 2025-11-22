@@ -1,92 +1,92 @@
 import React from "react";
-import { ArrowDown, Award, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ParticlesBackground from "./ParticlesBackground";
 
 const Hero = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 bg-slate-50 dark:bg-slate-950"
     >
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-gray-50 dark:from-gray-900 dark:via-slate-900 dark:to-black"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-50/20 via-transparent to-transparent dark:from-blue-950/10"></div>
+      {/* Particle Animation */}
+      <ParticlesBackground />
+
+      {/* Bottom Gradient for Separation */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-100 to-transparent dark:from-slate-900 pointer-events-none z-10"></div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center animate-fade-in">
-          <div className="mb-6">
-            <div className="flex justify-center">
-              <div className="relative">
-                <img
-                  src={"https://avatars.githubusercontent.com/u/10277908?v=3"}
-                  // alt={`${cert.title} Certificate`}
-                  className="w-48 h-48 object-contain rounded-lg shadow-md grayscale"
-                  // style={{ filter: "grayscale(1)" }}
-                />
-              </div>
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="mb-8 animate-fade-in">
+            <div className="relative inline-block">
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary to-indigo-400 rounded-full blur-lg opacity-50 animate-pulse"></div>
+              <img
+                src="https://avatars.githubusercontent.com/u/10277908?v=3"
+                alt="Shameer S N"
+                className="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white dark:border-slate-900 shadow-xl object-cover"
+              />
+              <div className="absolute bottom-2 right-2 w-6 h-6 bg-green-500 border-4 border-white dark:border-slate-900 rounded-full z-10"></div>
             </div>
-
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 dark:from-slate-100 dark:via-white dark:to-slate-100 bg-clip-text text-transparent tracking-tight">
-              Shameer S N
-            </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold text-slate-700 dark:text-slate-300 mb-6">
-              Technology Architect & Full Stack Developer
-            </h2>
           </div>
 
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Technology Architect specializing in designing and implementing
-            scalable enterprise solutions. Proven expertise in full-stack
-            development, cloud architecture, and leading high-performing
-            engineering teams.
+          <div className="inline-block mb-6 animate-fade-in delay-100">
+            <div className="px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium flex items-center gap-2">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              Available for new opportunities
+            </div>
+          </div>
+
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-slate-900 dark:text-white animate-fade-in-up">
+            Architecting <span className="text-primary">Scalable</span> <br />
+            Digital Solutions
+          </h1>
+
+          <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-200 text-balance">
+            Senior Technology Architect specializing in building high-performance enterprise applications and leading engineering teams.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button size="lg" className="text-lg px-8 py-6 shadow-lg">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in-up delay-300">
+            <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900">
               <a href="#contact" className="flex items-center gap-2">
-                Get In Touch
-                <Mail size={20} />
+                Contact Me
               </a>
             </Button>
           </div>
 
-          <div className="flex justify-center space-x-6 mb-16">
+          <div className="flex justify-center space-x-8 animate-fade-in-up delay-500">
             <a
               href="https://github.com/shameersn"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110"
+              className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors duration-300"
             >
-              <Github size={24} className="text-gray-700 dark:text-gray-300" />
+              <Github size={24} />
             </a>
             <a
               href="https://www.linkedin.com/in/shameersn/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110"
+              className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors duration-300"
             >
-              <Linkedin
-                size={24}
-                className="text-gray-600 dark:text-gray-400"
-              />
+              <Linkedin size={24} />
             </a>
             <a
               href="mailto:shameersalnaz@gmail.com"
-              className="p-3 rounded-full bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110"
+              className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors duration-300"
             >
-              <Mail size={24} className="text-gray-600 dark:text-gray-400" />
-            </a>
-          </div>
-
-          <div className="animate-bounce">
-            <a href="#about" className="inline-block">
-              <ArrowDown
-                size={32}
-                className="text-gray-400 dark:text-gray-500"
-              />
+              <Mail size={24} />
             </a>
           </div>
         </div>
+      </div>
+
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce delay-1000">
+        <a href="#about" className="text-slate-400 hover:text-primary transition-colors duration-300">
+          <ArrowDown size={24} />
+        </a>
       </div>
     </section>
   );

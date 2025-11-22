@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shameer S N - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px 60px;
+            background: #fff;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+
+        .header .title {
+            font-size: 18px;
+            color: #4b5563;
+            margin-bottom: 12px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        .contact-info a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            color: #1e40af;
+            border-bottom: 2px solid #93c5fd;
+            padding-bottom: 6px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .summary {
+            font-size: 14px;
+            color: #4b5563;
+            line-height: 1.8;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 20px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .job-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1f2937;
+        }
+
+        .job-period {
+            font-size: 13px;
+            color: #6b7280;
+            font-style: italic;
+        }
+
+        .company-name {
+            font-size: 14px;
+            color: #4b5563;
+            margin-bottom: 8px;
+        }
+
+        .job-description {
+            font-size: 13px;
+            color: #4b5563;
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+
+        .achievements {
+            margin-top: 8px;
+        }
+
+        .achievements li {
+            font-size: 13px;
+            color: #4b5563;
+            margin-left: 20px;
+            margin-bottom: 4px;
+            line-height: 1.6;
+        }
+
+        .technologies {
+            margin-top: 8px;
+        }
+
+        .tech-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1f2937;
+            display: inline;
+        }
+
+        .tech-list {
+            display: inline;
+            font-size: 13px;
+            color: #4b5563;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .skill-category {
+            margin-bottom: 10px;
+        }
+
+        .skill-category h4 {
+            font-size: 14px;
+            color: #1f2937;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .skill-category p {
+            font-size: 12px;
+            color: #4b5563;
+            line-height: 1.7;
+        }
+
+        @media print {
+            body {
+                padding: 20px 30px;
+            }
+
+            .header h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SHAMEER S N</h1>
+        <div class="title">Technology Architect | Full Stack JavaScript Developer</div>
+        <div class="contact-info">
+            <span>📧 shameersalnaz@gmail.com</span>
+            <span>📱 +91 9061527989</span>
+            <span>📍 Trivandrum, Kerala, India</span>
+            <span>🔗 <a href="https://shameer.sn">shameer.sn</a></span>
+            <span>💼 <a href="https://linkedin.com/in/shameersn">linkedin.com/in/shameersn</a></span>
+            <span>💻 <a href="https://github.com/shameersn">github.com/shameersn</a></span>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Professional Summary</h2>
+        <p class="summary">
+            Technology Architect with 13+ years of experience in designing, developing, deploying, and maintaining complex web and mobile applications.
+            Expert in full-stack JavaScript development with proven track record of leading teams, optimizing enterprise applications, and delivering
+            scalable solutions. Passionate about learning, coding, teaching, and mentoring developers. Successfully led 20-member teams and trained 50+
+            developers in modern web technologies.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4>Languages:</h4>
+                <p>JavaScript, TypeScript, PHP, Python, HTML5, CSS3, SASS</p>
+            </div>
+            <div class="skill-category">
+                <h4>Frameworks & Libraries:</h4>
+                <p>ReactJS, React Native, NodeJS, Angular, ExpressJS, NestJS, NextJS</p>
+            </div>
+            <div class="skill-category">
+                <h4>Databases:</h4>
+                <p>PostgreSQL, MySQL, MongoDB, Cassandra, Redis, Elasticsearch, DynamoDB, Snowflake</p>
+            </div>
+            <div class="skill-category">
+                <h4>Cloud & DevOps:</h4>
+                <p>AWS (Lambda, SNS, SQS, SES), Docker, Kafka, Apache Spark, CI/CD, Terraform</p>
+            </div>
+            <div class="skill-category">
+                <h4>Architecture:</h4>
+                <p>Microservices, System Design, REST APIs, Multi-tenant Architecture, Event-Driven Architecture</p>
+            </div>
+            <div class="skill-category">
+                <h4>Integrations:</h4>
+                <p>Zoom, Stripe, Twilio, OneSignal, Avalara, Tokbox/WebRTC, Facebook SDK</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Professional Experience</h2>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <div class="job-title">Technology Architect</div>
+                <div class="job-period">June 2025 - Present</div>
+            </div>
+            <div class="company-name">Experion Technologies | Trivandrum, Kerala, India</div>
+            <p class="job-description">
+                Leading architectural decisions and technical strategy for enterprise applications, focusing on scalability,
+                performance optimization, and team mentorship.
+            </p>
+            <ul class="achievements">
+                <li>Driving technical excellence across multiple product teams</li>
+                <li>Architecting cloud-native solutions on AWS infrastructure</li>
+                <li>Establishing best practices and coding standards</li>
+                <li>Mentoring senior developers and leading technical reviews</li>
+            </ul>
+            <div class="technologies">
+                <span class="tech-label">Technologies:</span>
+                <span class="tech-list">AWS, NodeJS, ReactJS, React Native, PostgreSQL, MongoDB, Kafka, System Design</span>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <div class="job-title">Software Architect</div>
+                <div class="job-period">March 2023 - June 2025</div>
+            </div>
+            <div class="company-name">Experion Technologies | Trivandrum, Kerala, India</div>
+            <p class="job-description">
+                Led a 20-member team in optimizing and adding new features to a complex healthcare application.
+                Architected and deployed version 2.0 addressing all technical debts.
+            </p>
+            <ul class="achievements">
+                <li>Deployed 2.0 version with 6 web portals in ReactJS and React Native mobile app</li>
+                <li>Optimized NodeJS monolith with 700+ APIs, addressed major technical debts</li>
+                <li>Successfully clustered Cassandra, Kafka, MongoDB, and Elasticsearch</li>
+                <li>Supported Spark migration from version 2.0 to 3.0 for heavy data processing</li>
+                <li>Provided technical support for 15+ third-party integrations (Zoom, Stripe, Twilio, SES, OneSignal, Avalara)</li>
+            </ul>
+            <div class="technologies">
+                <span class="tech-label">Technologies:</span>
+                <span class="tech-list">ReactJS, React Native, NodeJS, PostgreSQL, Cassandra, Kafka, MongoDB, Elasticsearch, Apache Spark, AWS</span>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <div class="job-title">Associate Software Architect</div>
+                <div class="job-period">July 2020 - March 2023</div>
+            </div>
+            <div class="company-name">Experion Technologies | Trivandrum, Kerala, India</div>
+            <p class="job-description">
+                Led team in optimizing and adding new features to existing applications. Focused on full-stack development
+                with ReactJS, React Native, NodeJS, and PostgreSQL.
+            </p>
+            <ul class="achievements">
+                <li>Designed and developed highly scalable notification architecture using AWS SNS, SQS, Lambda, and SES</li>
+                <li>Built healthcare application with Twilio integration for audio/video communications</li>
+                <li>Provided training and guidance for 50+ new joiners in full-stack MERN development</li>
+                <li>Improved application performance and reduced technical debt</li>
+            </ul>
+            <div class="technologies">
+                <span class="tech-label">Technologies:</span>
+                <span class="tech-list">ReactJS, React Native, NodeJS, PostgreSQL, AWS Lambda, AWS SNS, AWS SQS, Twilio, Redis</span>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <div class="job-title">Technology Lead</div>
+                <div class="job-period">May 2019 - July 2020</div>
+            </div>
+            <div class="company-name">Experion Technologies | Trivandrum, Kerala, India</div>
+            <p class="job-description">
+                Led the development of scalable REST APIs with multi-tenant support for an edutech application.
+                Developed performant Angular applications with Angular Material.
+            </p>
+            <ul class="achievements">
+                <li>Designed and developed scalable REST APIs with multi-tenant support</li>
+                <li>Built highly optimized Angular application with Angular Material and Reactive forms</li>
+                <li>Implemented Redis caching for improved performance</li>
+            </ul>
+            <div class="technologies">
+                <span class="tech-label">Technologies:</span>
+                <span class="tech-list">NodeJS, Angular, MySQL, Redis, ExpressJS, AWS, TypeScript, Angular Material</span>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <div class="job-title">Senior Software Engineer</div>
+                <div class="job-period">January 2018 - April 2019</div>
+            </div>
+            <div class="company-name">Experion Technologies | Trivandrum, Kerala, India</div>
+            <p class="job-description">
+                Successfully migrated Angular applications and led projects with real-time audio/video communication features.
+            </p>
+            <ul class="achievements">
+                <li>Successfully migrated Angular 4 application to Angular 6 with performance improvements</li>
+                <li>Took over Angular 4 project with Tokbox (audio/video call) integration and delivered successfully</li>
+                <li>Mentored junior developers in Angular best practices</li>
+            </ul>
+            <div class="technologies">
+                <span class="tech-label">Technologies:</span>
+                <span class="tech-list">Angular, TypeScript, NodeJS, Tokbox, WebRTC, RxJS</span>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <div class="job-title">Full Stack Developer</div>
+                <div class="job-period">July 2016 - December 2017</div>
+            </div>
+            <div class="company-name">TILTLABS | Trivandrum, Kerala, India</div>
+            <p class="job-description">
+                Full-stack developer for big data projects with Angular 4 as frontend and NodeJS with MySQL as backend.
+            </p>
+            <ul class="achievements">
+                <li>Built big data projects with Angular 4, NodeJS, and MySQL</li>
+                <li>Improved API performance through database optimizations and caching</li>
+                <li>Added new features to AngularJS (1.X) application with NodeJS and Cassandra</li>
+            </ul>
+            <div class="technologies">
+                <span class="tech-label">Technologies:</span>
+                <span class="tech-list">Angular, AngularJS, NodeJS, MySQL, Cassandra, PHP, OpenCart, CodeIgniter, AWS</span>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <div class="job-title">Front End Developer</div>
+                <div class="job-period">March 2012 - June 2016</div>
+            </div>
+            <div class="company-name">Hash Include | Trivandrum, Kerala, India</div>
+            <p class="job-description">
+                Started career building static websites and responsive web applications using HTML, CSS, SASS, jQuery, and JavaScript.
+            </p>
+            <ul class="achievements">
+                <li>Built numerous static websites using HTML, CSS, SASS, jQuery, and JavaScript</li>
+                <li>Hands-on experience in CSS frameworks like Bootstrap, Foundation, and Materialize</li>
+                <li>Developed hybrid mobile applications using jQuery Mobile</li>
+            </ul>
+            <div class="technologies">
+                <span class="tech-label">Technologies:</span>
+                <span class="tech-list">HTML5, CSS3, SASS, JavaScript, jQuery, Bootstrap, Foundation, Materialize, jQuery Mobile</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Certifications</h2>
+        <div class="experience-item">
+            <div class="job-header">
+                <div class="job-title">AWS AI Cloud Practitioner</div>
+                <div class="job-period">2025</div>
+            </div>
+            <div class="company-name">Amazon Web Services</div>
+            <p class="job-description">
+                Foundational understanding of AWS AI/ML services, cloud computing concepts, and artificial intelligence implementations on AWS platform.
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Education</h2>
+        <div class="education-item">
+            <div class="job-header">
+                <div class="job-title">B.Tech - Computer Software Engineering</div>
+                <div class="job-period">2007 - 2011</div>
+            </div>
+            <div class="company-name">College of Engineering, Attingal</div>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "@/components/ui/card";
-import { Calendar, MapPin, Building, Users, Zap } from "lucide-react";
+import { Calendar, MapPin, Building, Zap } from "lucide-react";
 
 const Experience = () => {
   const experiences = [
@@ -186,15 +186,14 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-24 bg-slate-50 dark:bg-slate-900">
+    <section id="experience" className="py-24 bg-white dark:bg-slate-900">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
-              Professional Experience
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-white tracking-tight">
+              Professional <span className="text-primary">Experience</span>
             </h2>
-            <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
               A comprehensive career spanning 13+ years with progressive
               responsibilities in software engineering, architecture, and
               technical leadership
@@ -203,24 +202,24 @@ const Experience = () => {
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-600 hidden md:block"></div>
+            <div className="absolute left-8 top-0 bottom-0 w-px bg-slate-200 dark:bg-slate-800 hidden md:block"></div>
 
             {experiences.map((exp, index) => (
               <div key={index} className="relative mb-12 animate-fade-in-up">
                 {/* Timeline dot */}
-                <div className="absolute left-6 w-4 h-4 bg-gray-600 dark:bg-gray-300 rounded-full border-4 border-white dark:border-gray-900 shadow-lg hidden md:block"></div>
+                <div className="absolute left-6 w-4 h-4 bg-white dark:bg-slate-900 rounded-full border-4 border-primary shadow-lg hidden md:block z-10"></div>
 
-                <Card className="ml-0 md:ml-20 p-8 hover:shadow-xl transition-all duration-300 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800">
-                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
+                <Card className="ml-0 md:ml-20 p-8 hover:shadow-xl transition-all duration-300 border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50 backdrop-blur-sm">
+                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
                     <div className="mb-4 lg:mb-0">
-                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
                         {exp.title}
                       </h3>
-                      <div className="flex items-center text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                      <div className="flex items-center text-primary font-semibold mb-2">
                         <Building size={18} className="mr-2" />
                         {exp.company}
                       </div>
-                      <div className="flex flex-col sm:flex-row sm:items-center text-gray-600 dark:text-gray-400 text-sm gap-4">
+                      <div className="flex flex-col sm:flex-row sm:items-center text-slate-500 dark:text-slate-400 text-sm gap-4">
                         <div className="flex items-center">
                           <Calendar size={16} className="mr-2" />
                           {exp.period}
@@ -233,15 +232,15 @@ const Experience = () => {
                     </div>
                   </div>
 
-                  <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                  <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
                     {exp.description}
                   </p>
 
                   <div className="mb-6">
-                    <h4 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
+                    <h4 className="font-semibold text-slate-900 dark:text-white mb-3 flex items-center">
                       <Zap
                         size={18}
-                        className="mr-2 text-gray-500 dark:text-gray-400"
+                        className="mr-2 text-amber-500"
                       />
                       Key Achievements
                     </h4>
@@ -249,9 +248,9 @@ const Experience = () => {
                       {exp.achievements.map((achievement, i) => (
                         <li
                           key={i}
-                          className="text-gray-600 dark:text-gray-400 flex items-start"
+                          className="text-slate-600 dark:text-slate-400 flex items-start text-sm"
                         >
-                          <span className="text-gray-500 dark:text-gray-400 mr-2">
+                          <span className="text-primary mr-2 mt-1">
                             •
                           </span>
                           {achievement}
@@ -261,14 +260,14 @@ const Experience = () => {
                   </div>
 
                   <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
+                    <h4 className="font-semibold text-slate-900 dark:text-white mb-3 text-sm">
                       Technologies Used
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech, i) => (
                         <span
                           key={i}
-                          className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium"
+                          className="px-3 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-full text-xs font-medium hover:border-primary/50 transition-colors"
                         >
                           {tech}
                         </span>
