@@ -81,17 +81,15 @@ const Blog = () => {
   ];
 
   return (
-    <section id="blog" className="py-20 bg-white dark:bg-gray-900">
+    <section id="blog" className="py-24 bg-slate-50 dark:bg-slate-950">
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
-              Tech Blog
+          <div className="mb-16 animate-fade-in-up">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-white tracking-tight">
+              Tech <span className="text-primary">Blog</span>
             </h2>
-            <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Insights, tutorials, and thoughts on software architecture,
-              development best practices, and emerging technologies
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl">
+              Insights, tutorials, and thoughts on software architecture, development best practices, and emerging technologies.
             </p>
           </div>
 
@@ -99,23 +97,23 @@ const Blog = () => {
             {blogPosts.map((post, index) => (
               <Card
                 key={post.id}
-                className="overflow-hidden hover:shadow-xl transition-all duration-300 animate-scale-in bg-white dark:bg-gray-800 border-none group"
+                className="group overflow-hidden border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:shadow-2xl transition-all duration-300"
               >
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden h-48">
                   <img
                     src={post.image}
                     alt={post.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-primary text-white text-xs font-medium rounded-full">
+                    <span className="px-3 py-1 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm text-slate-900 dark:text-white text-xs font-medium rounded-full">
                       {post.category}
                     </span>
                   </div>
                 </div>
 
                 <div className="p-6">
-                  <div className="flex items-center gap-4 mb-3 text-sm text-gray-500 dark:text-gray-400">
+                  <div className="flex items-center gap-4 mb-4 text-xs text-slate-500 dark:text-slate-400">
                     <div className="flex items-center">
                       <User size={14} className="mr-1" />
                       {post.author}
@@ -130,35 +128,26 @@ const Blog = () => {
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-primary transition-colors line-clamp-2">
+                  <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white group-hover:text-primary transition-colors line-clamp-2">
                     {post.title}
                   </h3>
 
-                  <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed text-sm line-clamp-3">
+                  <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed text-sm line-clamp-3">
                     {post.excerpt}
                   </p>
 
                   <Link to={`/blog/${post.id}`}>
                     <Button
-                      size="sm"
-                      className="w-full group-hover:bg-primary/90 transition-colors"
+                      variant="ghost"
+                      className="w-full justify-between group-hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800"
                     >
-                      Read More
-                      <ArrowRight size={14} className="ml-2" />
+                      Read Article
+                      <ArrowRight size={16} className="ml-2 transform group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                 </div>
               </Card>
             ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
-              Want to stay updated with the latest posts?
-            </p>
-            <Button size="lg" variant="outline" className="px-8">
-              Subscribe to Newsletter
-            </Button>
           </div>
         </div>
       </div>

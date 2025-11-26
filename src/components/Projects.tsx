@@ -1,197 +1,119 @@
 import React from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, Users, Clock, Award } from "lucide-react";
+import { ExternalLink, ArrowUpRight, Sparkles, Database, Smartphone, Server } from "lucide-react";
 
 const Projects = () => {
   const projects = [
     {
       title: "Enterprise E-commerce Platform",
       description:
-        "Architected and led development of a scalable e-commerce platform handling $50M+ in annual transactions. Built with microservices architecture supporting multiple vendors and complex inventory management.",
+        "Architected and led development of a scalable e-commerce platform handling $50M+ in annual transactions. Built with microservices architecture supporting multiple vendors.",
       image:
         "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-      technologies: [
-        "React",
-        "Node.js",
-        "PostgreSQL",
-        "Redis",
-        "AWS",
-        "Kubernetes",
-      ],
-      achievements: [
-        "Serves 100K+ daily active users",
-        "99.9% uptime achieved",
-        "50M+ annual transaction volume",
-      ],
+      technologies: ["React", "Node.js", "AWS", "K8s"],
       type: "Enterprise",
+      icon: <Sparkles className="w-6 h-6 text-amber-500" />,
+      className: "md:col-span-2",
     },
     {
-      title: "AI-Powered Analytics Dashboard",
+      title: "AI Analytics Dashboard",
       description:
-        "Developed an intelligent analytics platform that processes real-time data streams and provides predictive insights for business decision-making using machine learning algorithms.",
+        "Intelligent analytics platform processing real-time data streams for predictive business insights.",
       image:
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-      technologies: [
-        "Python",
-        "TensorFlow",
-        "React",
-        "D3.js",
-        "Apache Kafka",
-        "MongoDB",
-      ],
-      achievements: [
-        "Processes 1M+ events per minute",
-        "Improved decision accuracy by 40%",
-        "Real-time insights delivery",
-      ],
+      technologies: ["Python", "TensorFlow", "React"],
       type: "AI/ML",
+      icon: <Database className="w-6 h-6 text-blue-500" />,
+      className: "md:col-span-1",
     },
     {
-      title: "Cross-Platform Mobile Banking App",
+      title: "Mobile Banking App",
       description:
-        "Led the development of a secure mobile banking application with biometric authentication, real-time notifications, and comprehensive financial management features.",
+        "Secure mobile banking application with biometric authentication and real-time notifications.",
       image:
         "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
-      technologies: [
-        "React Native",
-        "Node.js",
-        "PostgreSQL",
-        "JWT",
-        "AWS",
-        "Socket.io",
-      ],
-      achievements: [
-        "500K+ app downloads",
-        "Bank-grade security implemented",
-        "4.8/5 app store rating",
-      ],
+      technologies: ["React Native", "Node.js"],
       type: "Mobile",
+      icon: <Smartphone className="w-6 h-6 text-green-500" />,
+      className: "md:col-span-1",
     },
     {
-      title: "Microservices Migration Project",
+      title: "Microservices Migration",
       description:
-        "Successfully led the migration of a monolithic legacy system to microservices architecture, improving scalability, maintainability, and deployment velocity for a Fortune 500 company.",
+        "Migration of monolithic legacy system to microservices architecture, improving scalability by 300%.",
       image:
         "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop",
-      technologies: [
-        "Java",
-        "Spring Boot",
-        "Docker",
-        "Kubernetes",
-        "Jenkins",
-        "Grafana",
-      ],
-      achievements: [
-        "Reduced deployment time by 80%",
-        "Improved system scalability by 300%",
-        "Zero-downtime migration achieved",
-      ],
+      technologies: ["Java", "Spring Boot", "Docker"],
       type: "Architecture",
+      icon: <Server className="w-6 h-6 text-purple-500" />,
+      className: "md:col-span-2",
     },
   ];
 
   return (
-    <section
-      id="projects"
-      className="py-20 bg-gradient-to-br from-gray-50 to-blue-50"
-    >
+    <section id="projects" className="py-24 bg-slate-50 dark:bg-slate-950">
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              Featured Projects
+          <div className="mb-16 animate-fade-in-up">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-white tracking-tight">
+              Featured <span className="text-primary">Projects</span>
             </h2>
-            <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A showcase of projects and solutions delivered throughout my
-              career
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl">
+              A selection of mission-critical systems and innovative solutions delivered for enterprise clients.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {projects.map((project, index) => (
               <Card
                 key={index}
-                className="overflow-hidden hover:shadow-xl transition-all duration-300 animate-scale-in bg-white border-none group"
+                className={`group relative overflow-hidden border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:shadow-2xl transition-all duration-500 ${project.className}`}
               >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1 bg-primary text-white text-xs font-medium rounded-full">
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-slate-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+                <div className="h-full flex flex-col">
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute top-4 right-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-slate-900 dark:text-white z-20">
                       {project.type}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-
-                  <p className="text-gray-600 mb-4 leading-relaxed text-sm">
-                    {project.description}
-                  </p>
-
-                  <div className="mb-4">
-                    <h4 className="font-semibold text-gray-900 mb-2 flex items-center text-sm">
-                      <Award size={16} className="mr-2 text-yellow-500" />
-                      Key Achievements
-                    </h4>
-                    <ul className="space-y-1">
-                      {project.achievements.map((achievement, i) => (
-                        <li
-                          key={i}
-                          className="text-gray-600 text-xs flex items-start"
-                        >
-                          <span className="text-primary mr-2">•</span>
-                          {achievement}
-                        </li>
-                      ))}
-                    </ul>
+                    </div>
                   </div>
 
-                  <div className="mb-6">
+                  <div className="p-8 flex-1 flex flex-col relative z-20">
+                    <div className="mb-4 flex items-center justify-between">
+                      <div className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg group-hover:bg-primary/10 group-hover:text-primary transition-colors duration-300">
+                        {project.icon}
+                      </div>
+                      <ArrowUpRight className="w-6 h-6 text-slate-400 group-hover:text-primary transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
+                    </div>
+
+                    <h3 className="text-2xl font-bold mb-3 text-slate-900 dark:text-white group-hover:text-primary transition-colors duration-300">
+                      {project.title}
+                    </h3>
+
+                    <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed flex-1">
+                      {project.description}
+                    </p>
+
                     <div className="flex flex-wrap gap-2">
-                      {project.technologies.slice(0, 4).map((tech, i) => (
+                      {project.technologies.map((tech, i) => (
                         <span
                           key={i}
-                          className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs"
+                          className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-md text-xs font-medium"
                         >
                           {tech}
                         </span>
                       ))}
-                      {project.technologies.length > 4 && (
-                        <span className="px-2 py-1 bg-gray-100 text-gray-500 rounded text-xs">
-                          +{project.technologies.length - 4} more
-                        </span>
-                      )}
                     </div>
-                  </div>
-
-                  <div className="flex gap-3">
-                    <Button size="sm" className="flex-1 text-xs">
-                      View Details
-                      <ExternalLink size={14} className="ml-2" />
-                    </Button>
                   </div>
                 </div>
               </Card>
             ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="text-gray-600 mb-6">
-              Interested in seeing more of my work or discussing potential
-              collaborations?
-            </p>
-            <Button size="lg" className="px-8">
-              <a href="#contact">Let's Connect</a>
-            </Button>
           </div>
         </div>
       </div>
