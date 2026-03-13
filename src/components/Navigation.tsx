@@ -29,18 +29,18 @@ const Navigation = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-lg"
+          ? "bg-background/95 backdrop-blur-sm shadow-lg border-b border-border"
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="relative group cursor-pointer">
-            <div className="text-2xl font-bold text-gray-900 dark:text-white transition-all duration-300 group-hover:scale-105 tracking-wide">
+            <div className="text-2xl font-bold text-foreground transition-all duration-300 group-hover:scale-105 tracking-wide">
               <span className="relative">
                 Shameer S N
-                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gray-900 dark:bg-white transition-all duration-300 group-hover:w-full"></div>
-                <div className="absolute inset-0 text-gray-700 dark:text-gray-300 opacity-0 group-hover:opacity-50 transition-opacity duration-300 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></div>
+                <div className="absolute inset-0 text-muted-foreground opacity-0 group-hover:opacity-50 transition-opacity duration-300 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                   Shameer S N
                 </div>
               </span>
@@ -74,12 +74,12 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-white dark:bg-gray-900 shadow-lg rounded-lg mt-2 py-4 animate-fade-in">
+          <div className="md:hidden bg-background border border-border shadow-lg rounded-lg mt-2 py-4 animate-fade-in">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="block px-4 py-2 text-foreground hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200"
+                className="block px-4 py-2 text-foreground hover:text-primary hover:bg-muted transition-colors duration-200"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}

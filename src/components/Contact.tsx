@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -10,7 +9,6 @@ import {
   Linkedin,
   Github,
   Send,
-  MessageCircle,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -35,15 +33,19 @@ const Contact = () => {
     })
       .then(() => {
         toast({
-          title: "Message Sent!",
-          description: "Thank you for your message. I'll get back to you soon.",
+          title: "Message sent",
+          description: "Thanks for reaching out. I'll get back to you within 24 hours.",
         });
+        setFormData({ name: "", email: "", subject: "", message: "" });
       })
-      .catch((error) => alert(error));
-    // Simulate form submission
-
-    // Reset form
-    setFormData({ name: "", email: "", subject: "", message: "" });
+      .catch(() => {
+        toast({
+          title: "Message couldn't be sent",
+          description:
+            "Please check your connection and try again, or email me directly at shameersalnaz@gmail.com.",
+          variant: "destructive",
+        });
+      });
   };
 
   const handleChange = (
@@ -57,25 +59,25 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: <Mail className="text-blue-600" size={24} />,
+      icon: <Mail className="text-primary" size={24} />,
       title: "Email",
       value: "shameersalnaz@gmail.com",
       link: "mailto:shameersalnaz@gmail.com",
     },
     {
-      icon: <Phone className="text-green-600" size={24} />,
+      icon: <Phone className="text-primary" size={24} />,
       title: "Phone",
       value: "+91 90******89",
       link: "tel:+9190******89",
     },
     {
-      icon: <MapPin className="text-red-600" size={24} />,
+      icon: <MapPin className="text-primary" size={24} />,
       title: "Location",
       value: "Thiruvananthapuram, Kerala, India",
       link: null,
     },
     {
-      icon: <Linkedin className="text-blue-700" size={24} />,
+      icon: <Linkedin className="text-primary" size={24} />,
       title: "LinkedIn",
       value: "/in/shameersn",
       link: "https://linkedin.com/in/shameersn",
@@ -83,115 +85,78 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 bg-slate-50 dark:bg-slate-900">
+    <section id="contact" className="py-24 bg-muted">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
               Get In Touch
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Open to discussing technical consultation, architecture review,
-              and leadership opportunities. Please feel free to reach out for
-              professional inquiries.
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Open to consultation, architecture review, and leadership roles. Reach out for professional inquiries.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {/* Contact Information */}
-            <div className="animate-fade-in-up">
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white flex items-center">
-                  <MessageCircle className="mr-3 text-primary" size={28} />
-                  Professional Consultation
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                  I am available for consultation on enterprise architecture,
-                  technical leadership, and software development initiatives.
-                  Whether you are building new systems, modernizing existing
-                  infrastructure, or seeking technical guidance, I am here to
-                  provide strategic insights and practical solutions.
-                </p>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                  I respond to all professional inquiries within 24 hours and
-                  welcome opportunities to discuss complex technical challenges.
-                </p>
-              </div>
+            <div className="animate-fade-in-up space-y-8">
+              <p className="text-muted-foreground leading-relaxed">
+                Available for architecture review, technical leadership, and development initiatives. I respond within 24 hours.
+              </p>
 
-              <div className="grid sm:grid-cols-2 gap-4 mb-8">
-                {contactInfo.map((info, index) => (
-                  <Card
-                    key={index}
-                    className="p-4 hover:shadow-lg transition-all duration-300 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800"
-                  >
-                    <div className="flex items-center">
-                      {info.icon}
-                      <div className="ml-3">
-                        <div className="font-semibold text-gray-900 dark:text-white text-sm">
-                          {info.title}
-                        </div>
-                        {info.link ? (
-                          <a
-                            href={info.link}
-                            className="text-primary hover:underline text-sm"
-                            target={
-                              info.link.startsWith("http")
-                                ? "_blank"
-                                : undefined
-                            }
-                            rel={
-                              info.link.startsWith("http")
-                                ? "noopener noreferrer"
-                                : undefined
-                            }
-                          >
-                            {info.value}
-                          </a>
-                        ) : (
-                          <div className="text-gray-600 dark:text-gray-300 text-sm">
-                            {info.value}
-                          </div>
-                        )}
-                      </div>
+              <ul className="space-y-3">
+                {contactInfo.map((info) => (
+                  <li key={info.title} className="flex items-center gap-3">
+                    {info.icon}
+                    <div>
+                      <span className="font-semibold text-foreground text-sm">
+                        {info.title}
+                      </span>
+                      {info.link ? (
+                        <a
+                          href={info.link}
+                          className="text-primary hover:underline text-sm ml-1.5"
+                          target={
+                            info.link.startsWith("http")
+                              ? "_blank"
+                              : undefined
+                          }
+                          rel={
+                            info.link.startsWith("http")
+                              ? "noopener noreferrer"
+                              : undefined
+                          }
+                        >
+                          {info.value}
+                        </a>
+                      ) : (
+                        <span className="text-muted-foreground text-sm ml-1.5">
+                          {info.value}
+                        </span>
+                      )}
                     </div>
-                  </Card>
+                  </li>
                 ))}
-              </div>
+              </ul>
 
-              <Card className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-700 border border-blue-100 dark:border-slate-700">
-                <h4 className="font-bold text-gray-900 dark:text-white mb-3">
-                  Areas of Expertise
+              <div>
+                <h4 className="font-semibold text-foreground mb-2">
+                  Areas of expertise
                 </h4>
-                <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2 mt-1">•</span>
-                    Enterprise Software Architecture & System Design
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2 mt-1">•</span>
-                    Technical Leadership & Engineering Team Development
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2 mt-1">•</span>
-                    Full-Stack Application Development & Modernization
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2 mt-1">•</span>
-                    Cloud Infrastructure & DevOps Strategy
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2 mt-1">•</span>
-                    Technical Consulting & Architecture Review
-                  </li>
+                <ul className="space-y-1.5 text-sm text-muted-foreground">
+                  <li>Enterprise architecture & system design</li>
+                  <li>Technical leadership & team development</li>
+                  <li>Full-stack development & modernization</li>
+                  <li>Cloud & DevOps strategy</li>
+                  <li>Technical consulting & architecture review</li>
                 </ul>
-              </Card>
+              </div>
             </div>
 
             {/* Contact Form */}
-            <div className="animate-fade-in-up">
-              <Card className="p-8 border border-slate-200 dark:border-slate-700 shadow-xl bg-white dark:bg-slate-800">
-                <form
+            <div className="animate-fade-in-up p-6 md:p-8 border border-border rounded-lg bg-card">
+              <form
                   onSubmit={handleSubmit}
                   className="space-y-6"
                   netlify
@@ -201,7 +166,7 @@ const Contact = () => {
                     <div>
                       <label
                         htmlFor="name"
-                        className="block text-sm font-medium text-gray-700 mb-2"
+                        className="block text-sm font-medium text-foreground mb-2"
                       >
                         Your Name *
                       </label>
@@ -219,7 +184,7 @@ const Contact = () => {
                     <div>
                       <label
                         htmlFor="email"
-                        className="block text-sm font-medium text-gray-700 mb-2"
+                        className="block text-sm font-medium text-foreground mb-2"
                       >
                         Email Address *
                       </label>
@@ -239,7 +204,7 @@ const Contact = () => {
                   <div>
                     <label
                       htmlFor="subject"
-                      className="block text-sm font-medium text-gray-700 mb-2"
+                      className="block text-sm font-medium text-foreground mb-2"
                     >
                       Subject *
                     </label>
@@ -258,7 +223,7 @@ const Contact = () => {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium text-gray-700 mb-2"
+                      className="block text-sm font-medium text-foreground mb-2"
                     >
                       Message *
                     </label>
@@ -279,7 +244,6 @@ const Contact = () => {
                     <Send size={18} className="ml-2" />
                   </Button>
                 </form>
-              </Card>
             </div>
           </div>
         </div>

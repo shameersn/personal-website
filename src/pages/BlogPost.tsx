@@ -130,11 +130,12 @@ function App() {
 
   if (!post) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">Post Not Found</h1>
+      <div className="min-h-screen flex items-center justify-center bg-muted">
+        <div className="text-center px-4">
+          <h1 className="text-4xl font-bold mb-4 text-foreground">Blog post not found</h1>
+          <p className="text-muted-foreground mb-6">This post doesn't exist or the link may be incorrect.</p>
           <Link to="/">
-            <Button>Go Back Home</Button>
+            <Button>Back to homepage</Button>
           </Link>
         </div>
       </div>
@@ -155,8 +156,8 @@ function App() {
           />
           <div className="absolute inset-0 bg-black/50"></div>
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center text-white max-w-4xl px-4">
-              <span className="inline-block px-3 py-1 bg-primary text-white text-sm font-medium rounded-full mb-4">
+            <div className="text-center text-primary-foreground max-w-4xl px-4">
+              <span className="inline-block px-3 py-1 bg-primary text-primary-foreground text-sm font-medium rounded-full mb-4">
                 {post.category}
               </span>
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -168,11 +169,11 @@ function App() {
         </div>
 
         {/* Article Meta */}
-        <div className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+        <div className="bg-card border-b border-border">
           <div className="container mx-auto px-4 py-6">
             <div className="max-w-4xl mx-auto">
               <div className="flex flex-wrap items-center justify-between gap-4">
-                <div className="flex items-center gap-6 text-gray-600 dark:text-gray-400">
+                <div className="flex items-center gap-6 text-muted-foreground">
                   <div className="flex items-center">
                     <User size={16} className="mr-2" />
                     {post.author}
@@ -214,11 +215,11 @@ function App() {
             </Link>
 
             <div
-              className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-600 dark:prose-p:text-gray-300"
+              className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-foreground prose-p:text-muted-foreground"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
 
-            <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+            <div className="mt-12 pt-8 border-t border-border">
               <div className="flex justify-between items-center">
                 <Link to="/#blog">
                   <Button variant="outline">

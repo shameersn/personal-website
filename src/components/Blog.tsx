@@ -81,15 +81,15 @@ const Blog = () => {
   ];
 
   return (
-    <section id="blog" className="py-20 bg-white dark:bg-gray-900">
+    <section id="blog" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
               Tech Blog
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Insights, tutorials, and thoughts on software architecture,
               development best practices, and emerging technologies
             </p>
@@ -99,7 +99,7 @@ const Blog = () => {
             {blogPosts.map((post, index) => (
               <Card
                 key={post.id}
-                className="overflow-hidden hover:shadow-xl transition-all duration-300 animate-scale-in bg-white dark:bg-gray-800 border-none group"
+                className="overflow-hidden hover:shadow-xl transition-all duration-300 animate-scale-in bg-card border border-border group"
               >
                 <div className="relative overflow-hidden">
                   <img
@@ -108,14 +108,14 @@ const Blog = () => {
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-primary text-white text-xs font-medium rounded-full">
+                    <span className="px-3 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-full">
                       {post.category}
                     </span>
                   </div>
                 </div>
 
                 <div className="p-6">
-                  <div className="flex items-center gap-4 mb-3 text-sm text-gray-500 dark:text-gray-400">
+                  <div className="flex items-center gap-4 mb-3 text-sm text-muted-foreground">
                     <div className="flex items-center">
                       <User size={14} className="mr-1" />
                       {post.author}
@@ -130,11 +130,11 @@ const Blog = () => {
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-primary transition-colors line-clamp-2">
+                  <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors line-clamp-2">
                     {post.title}
                   </h3>
 
-                  <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed text-sm line-clamp-3">
+                  <p className="text-muted-foreground mb-4 leading-relaxed text-sm line-clamp-3">
                     {post.excerpt}
                   </p>
 
@@ -153,7 +153,7 @@ const Blog = () => {
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
+            <p className="text-muted-foreground mb-6">
               Want to stay updated with the latest posts?
             </p>
             <Button size="lg" variant="outline" className="px-8">

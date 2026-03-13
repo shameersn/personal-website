@@ -1,0 +1,19 @@
+# Project rules
+
+## Design Context
+
+### Users
+Visitors are recruiters, hiring managers, and potential clients (CTOs, product leads) evaluating Shameer as a Technology Architect and full-stack lead. Context: professional research, often on mobile or desktop during work. Job to be done: quickly understand expertise, experience, and credibility, and reach out for consultation, architecture review, or leadership opportunities.
+
+### Brand Personality
+**Professional, confident, approachable.** Voice is clear and expert without being cold or boastful. Copy should convey authority and warmth so visitors feel they can trust and contact. Aim for trust and confidence in every interaction.
+
+### Aesthetic Direction
+**Simple and elegant.** Prefer restraint over decoration: clean layout, generous spacing, neutral palette (grays/slate), and subtle hierarchy. No flashy colours—keep accents muted or derived from the existing design tokens (primary, muted, borders). Light and dark themes both supported; avoid visual noise, gradients used only sparingly (e.g. hero background). Reference the current section structure (centered headings, underline accent, cards with soft borders and hover states). Do not lean playful, startup-bright, or corporate-heavy.
+
+### Design Principles
+1. **Clarity first** — Information hierarchy and readability trump visual flair. Headings, sections, and CTAs should be easy to scan.
+2. **Restrained palette** — Use the existing HSL tokens (background, foreground, primary, muted, border). Avoid saturated or flashy colours; when adding colour, keep it subtle (e.g. soft blue/gray accents only where they already exist).
+3. **Professional warmth** — Microcopy, buttons, and empty states should feel approachable and human (“Get In Touch”, “I’ll get back to you soon”) while staying concise and confident.
+4. **Consistent patterns** — Reuse established patterns: section `id` + `py-24`, container + max-width, centered section titles with the primary underline, Card-based content blocks, smooth scroll and light motion (fade-in, fade-in-up, scale-in). Footer stays dark in both themes.
+5. **Basic accessibility** — Semantic HTML, sufficient contrast (existing neutrals), focus states on interactive elements, and respect for `prefers-reduced-motion` where animations are added. No need for WCAG AAA or specialized accommodations unless requested.

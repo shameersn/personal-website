@@ -46,6 +46,12 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 0 0% 10%;
     --sidebar-border: 0 0% 91%;
     --sidebar-ring: 0 0% 15%;
+
+    /* Footer: always dark in both themes (design system) */
+    --footer-background: 0 0% 9%;
+    --footer-foreground: 0 0% 98%;
+    --footer-muted: 0 0% 65%;
+    --footer-border: 0 0% 16%;
   }
 
   .dark {
@@ -85,6 +91,12 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 0 0% 96%;
     --sidebar-border: 0 0% 16%;
     --sidebar-ring: 0 0% 83%;
+
+    /* Footer: same dark in dark theme */
+    --footer-background: 0 0% 9%;
+    --footer-foreground: 0 0% 98%;
+    --footer-muted: 0 0% 65%;
+    --footer-border: 0 0% 16%;
   }
 }
 
@@ -99,6 +111,25 @@ All colors MUST be HSL.
 
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Respect prefers-reduced-motion: decorative/entrance animations become instant */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    .animate-fade-in,
+    .animate-fade-in-up,
+    .animate-scale-in,
+    .animate-scroll-hint {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+
+    .animate-scroll-hint {
+      animation-name: none !important;
+    }
   }
 }
 

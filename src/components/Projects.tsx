@@ -94,16 +94,16 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="py-20 bg-gradient-to-br from-gray-50 to-blue-50"
+      className="py-20 bg-gradient-to-br from-muted to-background"
     >
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
               Featured Projects
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               A showcase of projects and solutions delivered throughout my
               career
             </p>
@@ -113,7 +113,7 @@ const Projects = () => {
             {projects.map((project, index) => (
               <Card
                 key={index}
-                className="overflow-hidden hover:shadow-xl transition-all duration-300 animate-scale-in bg-white border-none group"
+                className="overflow-hidden hover:shadow-xl transition-all duration-300 animate-scale-in bg-card border border-border group"
               >
                 <div className="relative overflow-hidden">
                   <img
@@ -122,23 +122,23 @@ const Projects = () => {
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1 bg-primary text-white text-xs font-medium rounded-full">
+                    <span className="px-3 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-full">
                       {project.type}
                     </span>
                   </div>
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-primary transition-colors">
+                  <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
 
-                  <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                  <p className="text-muted-foreground mb-4 leading-relaxed text-sm">
                     {project.description}
                   </p>
 
                   <div className="mb-4">
-                    <h4 className="font-semibold text-gray-900 mb-2 flex items-center text-sm">
+                    <h4 className="font-semibold text-foreground mb-2 flex items-center text-sm">
                       <Award size={16} className="mr-2 text-yellow-500" />
                       Key Achievements
                     </h4>
@@ -146,7 +146,7 @@ const Projects = () => {
                       {project.achievements.map((achievement, i) => (
                         <li
                           key={i}
-                          className="text-gray-600 text-xs flex items-start"
+                          className="text-muted-foreground text-xs flex items-start"
                         >
                           <span className="text-primary mr-2">•</span>
                           {achievement}
@@ -160,13 +160,13 @@ const Projects = () => {
                       {project.technologies.slice(0, 4).map((tech, i) => (
                         <span
                           key={i}
-                          className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs"
+                          className="px-2 py-1 bg-muted text-muted-foreground rounded text-xs"
                         >
                           {tech}
                         </span>
                       ))}
                       {project.technologies.length > 4 && (
-                        <span className="px-2 py-1 bg-gray-100 text-gray-500 rounded text-xs">
+                        <span className="px-2 py-1 bg-muted text-muted-foreground rounded text-xs">
                           +{project.technologies.length - 4} more
                         </span>
                       )}
@@ -185,7 +185,7 @@ const Projects = () => {
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-gray-600 mb-6">
+            <p className="text-muted-foreground mb-6">
               Interested in seeing more of my work or discussing potential
               collaborations?
             </p>

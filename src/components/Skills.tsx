@@ -1,5 +1,4 @@
 import React from "react";
-import { Card } from "@/components/ui/card";
 import {
   Code,
   Database,
@@ -14,13 +13,13 @@ import {
 const Skills = () => {
   const skillCategories = [
     {
-      title: "Programming/Markup Languages",
-      icon: <Code className="text-gray-600 dark:text-gray-400" size={32} />,
+      title: "Programming & markup",
+      icon: Code,
       skills: ["JavaScript", "TypeScript", "PHP", "Python", "HTML5", "CSS3"],
     },
     {
-      title: "Frameworks & Libraries",
-      icon: <Zap className="text-gray-600 dark:text-gray-400" size={32} />,
+      title: "Frameworks & libraries",
+      icon: Zap,
       skills: [
         "ReactJS",
         "React Native",
@@ -32,8 +31,8 @@ const Skills = () => {
       ],
     },
     {
-      title: "Databases & Storage",
-      icon: <Database className="text-gray-600 dark:text-gray-400" size={32} />,
+      title: "Databases & storage",
+      icon: Database,
       skills: [
         "PostgreSQL",
         "MySQL",
@@ -47,12 +46,12 @@ const Skills = () => {
     },
     {
       title: "Cloud & DevOps",
-      icon: <Cloud className="text-gray-600 dark:text-gray-400" size={32} />,
+      icon: Cloud,
       skills: [
         "AWS",
-        "AWS Lambda",
-        "AWS SNS/SQS",
-        "AWS SES",
+        "Lambda",
+        "SNS/SQS",
+        "SES",
         "Docker",
         "Kafka",
         "Apache Spark",
@@ -60,96 +59,84 @@ const Skills = () => {
       ],
     },
     {
-      title: "Mobile Development",
-      icon: (
-        <Smartphone className="text-gray-600 dark:text-gray-400" size={32} />
-      ),
+      title: "Mobile",
+      icon: Smartphone,
       skills: ["React Native", "jQuery Mobile", "Hybrid Apps"],
     },
     {
-      title: "Architecture & Design",
-      icon: <Settings className="text-gray-600 dark:text-gray-400" size={32} />,
+      title: "Architecture & design",
+      icon: Settings,
       skills: [
         "Microservices",
         "System Design",
-        "REST API Design",
-        "Multi-tenant Architecture",
-        "Event-Driven Architecture",
-        "Performance Optimization",
+        "REST API",
+        "Multi-tenant",
+        "Event-driven",
+        "Performance",
       ],
     },
-    // {
-    //   title: "Third-Party Integrations",
-    //   icon: <Settings className="text-gray-600 dark:text-gray-400" size={32} />,
-    //   skills: [
-    //     "Zoom",
-    //     "Stripe",
-    //     "Twilio",
-    //     "OneSignal",
-    //     "Avalara",
-    //     "Tokbox/WebRTC",
-    //     "Facebook SDK",
-    //   ],
-    // },
     {
-      title: "Leadership & Soft Skills",
-      icon: <Users className="text-gray-600 dark:text-gray-400" size={32} />,
+      title: "Leadership",
+      icon: Users,
       skills: [
         "Team Leadership",
-        "Mentoring & Training",
+        "Mentoring",
         "Technical Strategy",
         "Code Reviews",
-        "Agile Methodology",
+        "Agile",
       ],
     },
     {
-      title: "AI/ML & Emerging Tech",
-      icon: <Brain className="text-gray-600" size={32} />,
+      title: "AI/ML & emerging tech",
+      icon: Brain,
       skills: ["Machine Learning", "AI Integration", "AI Agents", "MCP"],
     },
   ];
 
   return (
-    <section id="skills" className="py-24 bg-white dark:bg-gray-900">
+    <section id="skills" className="py-24 bg-background">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12 animate-fade-in-up">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
               Technical Expertise
             </h2>
-            <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Comprehensive technical proficiency developed through 13+ years of
-              progressive experience in enterprise software development and
-              architecture
+            <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              13+ years across enterprise development and architecture
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {skillCategories.map((category, index) => (
-              <Card
-                key={index}
-                className="p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 animate-scale-in bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
-              >
-                <div className="flex items-center mb-6">
-                  {category.icon}
-                  <h3 className="text-xl font-bold ml-3 text-gray-900 dark:text-white">
-                    {category.title}
-                  </h3>
+          <div className="space-y-8">
+            {skillCategories.map((category) => {
+              const Icon = category.icon;
+              return (
+                <div
+                  key={category.title}
+                  className="animate-fade-in-up"
+                >
+                  <div className="flex items-center gap-2 mb-3">
+                    <Icon
+                      className="text-muted-foreground shrink-0"
+                      size={20}
+                    />
+                    <h3 className="text-sm font-semibold text-foreground uppercase tracking-wide">
+                      {category.title}
+                    </h3>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-2.5 py-1 bg-muted text-muted-foreground rounded-md text-sm"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill, skillIndex) => (
-                    <span
-                      key={skillIndex}
-                      className="px-3 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </Card>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

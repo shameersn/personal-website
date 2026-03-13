@@ -65,6 +65,12 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        footer: {
+          DEFAULT: "hsl(var(--footer-background))",
+          foreground: "hsl(var(--footer-foreground))",
+          muted: "hsl(var(--footer-muted))",
+          border: "hsl(var(--footer-border))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -118,13 +124,23 @@ export default {
             transform: "scale(1)",
           },
         },
+        /* Smooth scroll hint (replaces bounce); natural deceleration */
+        "scroll-hint": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-6px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-in": "fade-in 0.6s ease-out",
-        "fade-in-up": "fade-in-up 0.6s ease-out",
-        "scale-in": "scale-in 0.5s ease-out",
+        "fade-in":
+          "fade-in 0.6s cubic-bezier(0.25, 1, 0.5, 1)",
+        "fade-in-up":
+          "fade-in-up 0.6s cubic-bezier(0.25, 1, 0.5, 1)",
+        "scale-in":
+          "scale-in 0.5s cubic-bezier(0.25, 1, 0.5, 1)",
+        "scroll-hint":
+          "scroll-hint 2s cubic-bezier(0.25, 1, 0.5, 1) infinite",
       },
     },
   },
