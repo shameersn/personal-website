@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { ctaSection } from "@/data/portfolio";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -88,13 +89,27 @@ const Contact = () => {
     <section id="contact" className="py-24 bg-muted">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
+          {/* CTA block */}
+          <div className="text-center mb-16 p-8 md:p-10 rounded-xl border border-border bg-card animate-fade-in-up">
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+              {ctaSection.title}
+            </h3>
+            <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
+              {ctaSection.subtitle}
+            </p>
+            <Button size="lg" className="mb-2" asChild>
+              <a href="#contact-form-section">{ctaSection.ctaText}</a>
+            </Button>
+            <p className="text-sm text-muted-foreground">{ctaSection.ctaSubtext}</p>
+          </div>
+
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
               Get In Touch
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Open to consultation, architecture review, and leadership roles. Reach out for professional inquiries.
+              Open to senior backend, AI engineer, and solution architect roles. Consultation and architecture review for startups and scale-ups.
             </p>
           </div>
 
@@ -102,7 +117,7 @@ const Contact = () => {
             {/* Contact Information */}
             <div className="animate-fade-in-up space-y-8">
               <p className="text-muted-foreground leading-relaxed">
-                Available for architecture review, technical leadership, and development initiatives. I respond within 24 hours.
+                I respond within 24 hours. Available for full-time roles, consulting, and architecture review.
               </p>
 
               <ul className="space-y-3">
@@ -142,25 +157,29 @@ const Contact = () => {
 
               <div>
                 <h4 className="font-semibold text-foreground mb-2">
-                  Areas of expertise
+                  What I can help with
                 </h4>
                 <ul className="space-y-1.5 text-sm text-muted-foreground">
-                  <li>Enterprise architecture & system design</li>
-                  <li>Technical leadership & team development</li>
-                  <li>Full-stack development & modernization</li>
-                  <li>Cloud & DevOps strategy</li>
-                  <li>Technical consulting & architecture review</li>
+                  {[
+                    "AI systems (LLMs, RAG, agents) and backend architecture",
+                    "Scalable APIs, microservices, and cloud-native design",
+                    "Technical leadership and system design reviews",
+                    "Consulting and architecture for startups and scale-ups",
+                  ].map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
                 </ul>
               </div>
             </div>
 
             {/* Contact Form */}
-            <div className="animate-fade-in-up p-6 md:p-8 border border-border rounded-lg bg-card">
+            <div id="contact-form-section" className="animate-fade-in-up p-6 md:p-8 border border-border rounded-lg bg-card scroll-mt-24">
               <form
+                  id="contact-form"
                   onSubmit={handleSubmit}
                   className="space-y-6"
                   netlify
-                  id="contact-form"
+                  name="contact"
                 >
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>

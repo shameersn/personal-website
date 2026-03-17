@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { caseStudies, type CaseStudy } from "@/data/portfolio";
-import { ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { caseStudies } from "@/data/portfolio";
+import type { CaseStudy } from "@/data/portfolio";
+import { Brain, ChevronRight } from "lucide-react";
+
+const aiStudies = caseStudies.filter((s) => s.isAiHighlight);
 
 const CaseStudyModal = ({
   study,
@@ -25,11 +27,9 @@ const CaseStudyModal = ({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <div className="flex items-center gap-2 flex-wrap">
-            <Badge variant="secondary" className="text-xs">
-              {study.tag}
-            </Badge>
-          </div>
+          <Badge variant="secondary" className="w-fit text-xs">
+            {study.tag}
+          </Badge>
           <DialogTitle className="text-xl pt-2">{study.title}</DialogTitle>
         </DialogHeader>
         <div className="space-y-6 text-sm">
@@ -81,46 +81,7 @@ const CaseStudyModal = ({
   );
 };
 
-const ProjectCard = ({
-  study,
-  onClick,
-}: {
-  study: CaseStudy;
-  onClick: () => void;
-}) => (
-  <Card
-    className="group cursor-pointer border border-border bg-card hover:border-primary/30 hover:shadow-lg transition-all duration-200 animate-fade-in-up"
-    onClick={onClick}
-  >
-    <CardHeader className="pb-2">
-      <div className="flex items-start justify-between gap-2">
-        <div>
-          <Badge variant="secondary" className="text-xs mb-2">
-            {study.tag}
-          </Badge>
-          <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-            {study.title}
-          </h3>
-        </div>
-        <ChevronRight
-          size={20}
-          className="text-muted-foreground group-hover:text-primary shrink-0 mt-1"
-        />
-      </div>
-    </CardHeader>
-    <CardContent>
-      <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
-        {study.problem}
-      </p>
-      <p className="text-primary text-sm font-medium mt-3 flex items-center gap-1">
-        View case study
-        <ChevronRight size={14} />
-      </p>
-    </CardContent>
-  </Card>
-);
-
-const Projects = () => {
+const AIWork = () => {
   const [selected, setSelected] = useState<CaseStudy | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -131,35 +92,57 @@ const Projects = () => {
 
   return (
     <section
-      id="projects"
-      className="py-24 bg-gradient-to-br from-muted to-background"
+      id="ai-work"
+      className="py-24 bg-background border-y border-border"
     >
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14 animate-fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              Case Studies
-            </h2>
-            <div className="w-24 h-1 bg-primary mx-auto mb-6" />
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Problem, solution, architecture, and impact — not just feature lists
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+            <div className="animate-fade-in-up">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="p-2 rounded-lg bg-primary/10 text-primary">
+                  <Brain size={24} />
+                </span>
+                <span className="text-sm font-medium uppercase tracking-wide text-primary">
+                  AI & automation
+                </span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+                AI Work
+              </h2>
+              <div className="w-24 h-1 bg-primary mt-4" />
+            </div>
+            <p className="text-muted-foreground max-w-md animate-fade-in-up">
+              RAG, multi-agent systems, and LLM-powered workflows — designed for production, not demos.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {caseStudies.map((study) => (
-              <ProjectCard
+            {aiStudies.map((study) => (
+              <Card
                 key={study.id}
-                study={study}
+                className="group cursor-pointer border-2 border-primary/20 bg-card hover:border-primary/50 hover:shadow-lg transition-all duration-200 animate-fade-in-up"
                 onClick={() => handleSelect(study)}
-              />
+              >
+                <CardHeader className="pb-2">
+                  <Badge variant="secondary" className="w-fit text-xs mb-2">
+                    {study.tag}
+                  </Badge>
+                  <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors flex items-center justify-between gap-2">
+                    {study.title}
+                    <ChevronRight size={20} className="shrink-0 text-muted-foreground group-hover:text-primary" />
+                  </h3>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
+                    {study.problem}
+                  </p>
+                  <p className="text-primary text-sm font-medium mt-3">
+                    View case study
+                  </p>
+                </CardContent>
+              </Card>
             ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Button variant="outline" size="lg" asChild>
-              <a href="#contact">Discuss a project</a>
-            </Button>
           </div>
         </div>
       </div>
@@ -173,4 +156,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default AIWork;

@@ -13,11 +13,11 @@ const Footer = () => {
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             {/* Brand Section */}
             <div>
-              <h3 className="text-2xl font-bold mb-4">Shameer</h3>
+              <h3 className="text-2xl font-bold mb-4">Shameer S N</h3>
               <p className="text-footer-muted leading-relaxed mb-4">
-                Software Architect & Technology Leader with 13+ years of
-                experience building scalable solutions and leading development
-                teams.
+                AI Systems Architect & Senior Backend Engineer — LLMs, scalable
+                systems, cloud-native design. Open to senior and remote
+                opportunities.
               </p>
               <div className="flex space-x-4">
                 <a
@@ -50,57 +50,34 @@ const Footer = () => {
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2">
                 <li>
-                  <a
-                    href="#about"
-                    className="text-footer-muted hover:text-footer-foreground transition-colors"
-                  >
-                    About Me
-                  </a>
+                  <a href="#about" className="text-footer-muted hover:text-footer-foreground transition-colors">About</a>
                 </li>
                 <li>
-                  <a
-                    href="#skills"
-                    className="text-footer-muted hover:text-footer-foreground transition-colors"
-                  >
-                    Skills
-                  </a>
+                  <a href="#projects" className="text-footer-muted hover:text-footer-foreground transition-colors">Projects</a>
                 </li>
                 <li>
-                  <a
-                    href="#experience"
-                    className="text-footer-muted hover:text-footer-foreground transition-colors"
-                  >
-                    Experience
-                  </a>
+                  <a href="#ai-work" className="text-footer-muted hover:text-footer-foreground transition-colors">AI Work</a>
                 </li>
                 <li>
-                  <a
-                    href="#projects"
-                    className="text-footer-muted hover:text-footer-foreground transition-colors"
-                  >
-                    Projects
-                  </a>
+                  <a href="#experience" className="text-footer-muted hover:text-footer-foreground transition-colors">Experience</a>
                 </li>
                 <li>
-                  <a
-                    href="#contact"
-                    className="text-footer-muted hover:text-footer-foreground transition-colors"
-                  >
-                    Contact
-                  </a>
+                  <a href="#capabilities" className="text-footer-muted hover:text-footer-foreground transition-colors">Capabilities</a>
+                </li>
+                <li>
+                  <a href="#contact" className="text-footer-muted hover:text-footer-foreground transition-colors">Contact</a>
                 </li>
               </ul>
             </div>
 
             {/* Services */}
             <div>
-              <h4 className="text-lg font-semibold mb-4">Services</h4>
+              <h4 className="text-lg font-semibold mb-4">Focus</h4>
               <ul className="space-y-2 text-footer-muted">
-                <li>Software Architecture</li>
-                <li>Technical Leadership</li>
-                <li>Full-Stack Development</li>
-                <li>Cloud Migration</li>
-                <li>Technology Consulting</li>
+                <li>AI Systems (LLMs, RAG, Agents)</li>
+                <li>Backend & API Architecture</li>
+                <li>Cloud-Native Design (AWS)</li>
+                <li>System Design & Consulting</li>
               </ul>
             </div>
           </div>
