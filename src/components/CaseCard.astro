@@ -1,0 +1,44 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  text: string;
+  tags: string[];
+  /** 'home': stacked card. 'list': wide row used on the Work page. */
+  variant?: 'home' | 'list';
+  label: string;
+  dates?: string;
+}
+const { href, title, text, tags, variant = 'home', label, dates } = Astro.props;
+---
+{variant === 'home' ? (
+  <a class="card lift on-paper home" href={href}>
+    <span class="label">{label}</span>
+    <span class="title">{title}</span>
+    <span class="text">{text}</span>
+    <span class="tags">{tags.map((t) => <span class="tag">{t}</span>)}</span>
+  </a>
+) : (
+  <a class="card lift row" href={href}>
+    <span class="stack" style="gap: 8px">
+      <span class="label">{label}</span>
+      <span class="title lg">{title}</span>
+      {dates && <span class="label">{dates}</span>}
+    </span>
+    <span class="stack" style="gap: 14px">
+      <span class="text">{text}</span>
+      <span class="tags">{tags.map((t) => <span class="tag">{t}</span>)}</span>
+      <span class="more">Read the case study →</span>
+    </span>
+  </a>
+)}
+
+<style>
+  .home { gap: 14px; }
+  .home .tags { margin-top: auto; }
+  .title { font-size: 22px; line-height: 28px; font-weight: 600; }
+  .title.lg { font-size: 24px; line-height: 30px; }
+  .text { color: var(--muted); }
+  .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px 32px; align-items: start; }
+  .more { font-weight: 600; color: var(--laterite); }
+</style>

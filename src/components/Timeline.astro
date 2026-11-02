@@ -1,0 +1,29 @@
+---
+const jobs = [
+  { when: '2026 – now', role: 'Senior Technology Architect', text: 'I look after architecture across several products. Much of it is now LLM apps, RAG pipelines and agents.' },
+  { when: '2025 – 2026', role: 'Technology Architect', text: 'System design for a large workforce platform, including how it sends messages to its users.' },
+  { when: '2023 – 2025', role: 'Software Architect', text: 'Led a team of 20. We shipped version 2.0 of six portals and an app, and cleaned up a Node.js system with 700+ APIs.' },
+  { when: '2020 – 2023', role: 'Associate Software Architect', text: 'Designed the notification system for a healthcare app on AWS (SNS, SQS, Lambda, SES, Twilio). Trained over 50 new developers.' },
+  { when: '2019 – 2020', role: 'Technology Lead', text: 'Built multi-tenant REST APIs for an edtech product with Node.js, MySQL and Redis.' },
+  { when: '2018 – 2019', role: 'Senior Software Engineer', text: 'Upgraded Angular apps, and took over a half-finished video-calling project and shipped it.' },
+  { when: '2016 – 2017', role: 'Full Stack Developer', text: 'Web apps for big-data projects with Angular, Node.js, MySQL and Cassandra. Plus a few websites on AWS.' },
+  { when: '2012 – 2016', role: 'Front End Developer', text: 'My first job. Static websites, some hybrid mobile apps and a few small Facebook games.' },
+];
+---
+<ol class="timeline">
+  {jobs.map((j, i) => (
+    <li>
+      <span class:list={['when', { now: i === 0 }]}>{j.when}</span>
+      <span><strong>{j.role}</strong><br /><span class="muted">{j.text}</span></span>
+    </li>
+  ))}
+</ol>
+
+<style>
+  .timeline { list-style: none; display: flex; flex-direction: column; margin: 0; padding: 0; }
+  li { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; padding: 18px 0; border-top: 1px solid var(--line); }
+  li:last-child { border-bottom: 1px solid var(--line); }
+  .when { font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+  .when.now { color: var(--laterite); }
+  @media (max-width: 480px) { li { grid-template-columns: 112px minmax(0, 1fr); gap: 24px; } }
+</style>

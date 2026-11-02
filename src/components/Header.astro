@@ -1,0 +1,59 @@
+---
+interface Props { current?: 'services' | 'work' | 'about' | '' }
+const { current = '' } = Astro.props;
+const links = [
+  { href: '/services', label: 'Services', id: 'services' },
+  { href: '/work', label: 'Work', id: 'work' },
+  { href: '/#experience', label: 'Experience', id: 'experience' },
+  { href: '/#skills', label: 'Skills', id: 'skills' },
+  { href: '/about', label: 'About', id: 'about' },
+];
+---
+<header class="site-header">
+  <nav aria-label="Main" class="container nav">
+    <a href="/" class="brand"><img src="/sn-mark.svg" alt="" width="32" height="32" />Shameer SN</a>
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <div id="nav-links" class="nav-links">
+      {links.map((l) => (
+        <a href={l.href} class:list={['nav-link', { active: current === l.id }]} aria-current={current === l.id ? 'page' : undefined}>{l.label}</a>
+      ))}
+      <a href="/about#contact" class="btn btn-primary btn-sm">Get in touch</a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .site-header { border-bottom: 1px solid var(--line); }
+  .nav { padding-top: 16px; padding-bottom: 16px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 600; font-size: 18px; }
+  .nav-links { display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 15px; }
+  .nav-link { color: var(--ink); text-decoration: none; }
+  .nav-link:hover { color: var(--laterite); }
+  .nav-link.active { color: var(--laterite); font-weight: 600; }
+  .menu-btn { display: none; height: 44px; padding: 0 16px; border: 1px solid var(--ink); border-radius: var(--radius-md); background: transparent; color: var(--ink); font: inherit; font-weight: 600; cursor: pointer; }
+
+  @media (max-width: 860px) {
+    :global(.js) .menu-btn { display: inline-flex; align-items: center; }
+    .nav-links { width: 100%; flex-direction: column; align-items: stretch; gap: 0; font-size: 17px; }
+    .nav-link { padding: 14px 0; border-top: 1px solid var(--line); }
+    .nav-links .btn { margin-top: 12px; }
+    :global(.js) .nav-links { display: none; }
+    :global(.js) .nav-links.open { display: flex; }
+  }
+</style>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('.menu-btn');
+  const panel = document.getElementById('nav-links');
+  if (btn && panel) {
+    const set = (open: boolean) => {
+      btn.setAttribute('aria-expanded', String(open));
+      panel.classList.toggle('open', open);
+    };
+    btn.addEventListener('click', () => set(btn.getAttribute('aria-expanded') !== 'true'));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') { set(false); btn.focus(); }
+    });
+    panel.addEventListener('click', (e) => { if ((e.target as HTMLElement).closest('a')) set(false); });
+  }
+</script>

@@ -1,0 +1,90 @@
+---
+const layers = [
+  { id: 'clients', label: 'Apps', text: 'Apps: web, mobile and admin. React, Next.js and React Native, all sharing one API.' },
+  { id: 'edge', label: 'Edge', text: 'Edge: CDN, firewall and load balancer. Fast pages and a first line of defence.' },
+  { id: 'services', label: 'Services', text: 'Services: auth, the core logic and notifications, kept separate. Node.js, NestJS or Python.' },
+  { id: 'data', label: 'Data', text: 'Data: PostgreSQL for records, Redis for speed, and a search engine for finding things.' },
+  { id: 'events', label: 'Events', text: 'Events: slow jobs go into a queue and run in the background, so users are not left waiting.' },
+  { id: 'ai', label: 'AI', text: 'AI: an LLM that answers from your own data, with checks on what goes in and out, cost limits, and a way to reach a person.' },
+  { id: 'ops', label: 'Operations', text: 'Operations: logs, alerts, CI/CD, backups and access control on AWS. Ready for SOC 2 and HIPAA audits.' },
+];
+const initial = 'ai';
+const initialText = layers.find((l) => l.id === initial)!.text;
+---
+<figure class="sysdiagram rise2" data-initial={initial}>
+  <p class="label">A typical production system I design</p>
+  <svg class="dg" viewBox="0 0 600 400" role="img" aria-label="Production architecture: web, mobile and admin apps go through a CDN, firewall and load balancer to API services for auth, core logic and notifications. Services use PostgreSQL, Redis and search, send background work through a queue to workers, and call an AI layer with an LLM, vector database and guardrails. Observability, CI/CD and backups run across everything." font-size="11">
+    <path class="ln" d="M120 42 H135 V62 H150" />
+    <path class="ln" d="M120 100 H135 V138 H150" />
+    <path class="ln" d="M120 158 H135 V138" />
+    <path class="ln" d="M270 62 H285 V80 H300" />
+    <path class="ln" d="M270 138 H285 V120 H300" />
+    <path class="ln-g" d="M430 50 H460" />
+    <path class="ln-g" d="M430 100 H460" />
+    <path class="ln-g" d="M430 150 H460" />
+    <path class="ln" d="M365 200 V240" />
+    <path class="ln" d="M430 264 H460" />
+    <path class="ln-g" d="M525 240 V180" />
+    <path class="ln-hot flow" d="M300 180 H285 V275 H270" />
+
+    <rect class="node" data-layer="clients" x="10" y="20" width="110" height="44" rx="8" /><text x="65" y="46">WEB</text>
+    <rect class="node" data-layer="clients" x="10" y="78" width="110" height="44" rx="8" /><text x="65" y="104">MOBILE</text>
+    <rect class="node" data-layer="clients" x="10" y="136" width="110" height="44" rx="8" /><text x="65" y="162">ADMIN</text>
+    <rect class="node" data-layer="edge" x="150" y="40" width="120" height="44" rx="8" /><text x="210" y="66">CDN · WAF</text>
+    <rect class="node" data-layer="edge" x="150" y="116" width="120" height="44" rx="8" /><text x="210" y="142">LOAD BALANCER</text>
+    <rect class="node-dark" data-layer="services" x="300" y="20" width="130" height="180" rx="8" />
+    <text class="t-night-muted" x="365" y="42">API SERVICES</text>
+    <rect class="node-inner" x="314" y="56" width="102" height="34" rx="4" /><text class="t-night" x="365" y="77">AUTH</text>
+    <rect class="node-inner" x="314" y="100" width="102" height="34" rx="4" /><text class="t-night" x="365" y="121">CORE</text>
+    <rect class="node-inner" x="314" y="144" width="102" height="34" rx="4" /><text class="t-night" x="365" y="165">NOTIFY</text>
+    <rect class="node-data thin" data-layer="data" x="460" y="28" width="130" height="44" rx="8" /><text class="t-g" x="525" y="54">POSTGRES</text>
+    <rect class="node-data thin" data-layer="data" x="460" y="78" width="130" height="44" rx="8" /><text class="t-g" x="525" y="104">REDIS</text>
+    <rect class="node-data thin" data-layer="data" x="460" y="128" width="130" height="44" rx="8" /><text class="t-g" x="525" y="154">SEARCH</text>
+    <rect class="node" data-layer="events" x="300" y="240" width="130" height="48" rx="8" /><text x="365" y="268">QUEUE · EVENTS</text>
+    <rect class="node" data-layer="events" x="460" y="240" width="130" height="48" rx="8" /><text x="525" y="268">WORKERS</text>
+    <rect class="node" data-layer="ai" x="10" y="222" width="260" height="106" rx="8" />
+    <text class="t-hot t-start" x="24" y="244">AI LAYER</text>
+    <rect class="node-chip" x="24" y="256" width="72" height="56" rx="4" /><text x="60" y="288">LLM</text>
+    <rect class="node-chip" x="104" y="256" width="72" height="56" rx="4" /><text x="140" y="282">VECTOR</text><text x="140" y="296">DB</text>
+    <rect class="node-chip" x="184" y="256" width="72" height="56" rx="4" /><text x="220" y="282">GUARD-</text><text x="220" y="296">RAILS</text>
+    <rect class="node-dash" data-layer="ops" x="10" y="346" width="580" height="44" rx="8" />
+    <text class="t-muted" x="300" y="372">AWS · OBSERVABILITY · CI/CD · BACKUPS · ACCESS CONTROL</text>
+  </svg>
+  <div role="group" aria-label="Explore the layers of the system" class="layer-btns">
+    {layers.map((l) => (
+      <button type="button" data-layer={l.id} data-text={l.text} aria-pressed={l.id === initial ? 'true' : 'false'}>{l.label}</button>
+    ))}
+  </div>
+  <figcaption class="caption" aria-live="polite">{initialText}</figcaption>
+</figure>
+
+<style>
+  .sysdiagram { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+  .layer-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+  .layer-btns button {
+    height: 44px; padding: 0 16px; border-radius: var(--radius-md); font: inherit; font-size: 15px; cursor: pointer;
+    background: var(--paper); color: var(--ink); border: 1px solid var(--muted);
+  }
+  .layer-btns button:hover { border-color: var(--ink); }
+  .layer-btns button[aria-pressed='true'] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .caption { font-size: 15px; line-height: 24px; color: var(--ink); min-height: 72px; }
+  /* Highlight: laterite stroke, width 3 */
+  .sysdiagram :global(.dg [data-layer].active) { stroke: var(--laterite); stroke-width: 3; }
+  @media (max-width: 720px) { .sysdiagram { padding: 16px; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.sysdiagram').forEach((root) => {
+    const buttons = root.querySelectorAll<HTMLButtonElement>('.layer-btns button');
+    const caption = root.querySelector<HTMLElement>('.caption');
+    const shapes = root.querySelectorAll<SVGElement>('svg [data-layer]');
+    const select = (id: string, text: string) => {
+      buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.layer === id)));
+      shapes.forEach((s) => s.classList.toggle('active', s.dataset.layer === id));
+      if (caption) caption.textContent = text;
+    };
+    buttons.forEach((b) => b.addEventListener('click', () => select(b.dataset.layer!, b.dataset.text!)));
+    const first = root.querySelector<HTMLButtonElement>(`.layer-btns button[data-layer="${root.dataset.initial}"]`);
+    if (first) select(first.dataset.layer!, first.dataset.text!);
+  });
+</script>
