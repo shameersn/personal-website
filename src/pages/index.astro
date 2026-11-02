@@ -1,0 +1,155 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Button from '../components/Button.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CaseCard from '../components/CaseCard.astro';
+import Timeline from '../components/Timeline.astro';
+import SkillRows from '../components/SkillRows.astro';
+import SystemDiagram from '../components/SystemDiagram.astro';
+import Steps from '../components/Steps.astro';
+import CTA from '../components/CTA.astro';
+
+const cases = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
+
+const credly = 'https://www.credly.com/badges/239d00fa-1b4f-43b8-a3fa-5f3a922a6268/public_url';
+
+const services = [
+  { title: 'Websites', text: 'Fast, simple websites and landing pages. Easy for you to update, and set up so Google can find them.', icon: '<rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8"/>' },
+  { title: 'Web applications', text: 'Dashboards, portals and SaaS products with React, Next.js or Angular.', icon: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 9v12"/>' },
+  { title: 'Mobile apps', text: 'One codebase for iOS and Android, built with React Native and Expo.', icon: '<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>' },
+  { title: 'APIs and backend', text: 'Node.js and NestJS APIs on PostgreSQL or MongoDB. I have connected a lot of Stripe, Twilio and Zoom over the years.', icon: '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>' },
+  { title: 'AWS cloud and DevOps', text: "AWS set up properly: security, CI/CD, monitoring and backups. I've done this for apps that go through SOC 2 and HIPAA audits.", icon: '<path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 9a4.5 4.5 0 0 1-.5 9H7z"/>' },
+  { title: 'AI features', text: 'Chatbots and search over your own documents. With limits on cost, and a way to pass the user to a real person when the AI is unsure.', icon: '<path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>' },
+];
+
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Shameer SN',
+  jobTitle: 'Senior Technology Architect',
+  url: 'https://shameer.sn',
+  image: 'https://shameer.sn/shameer.jpg',
+  address: { '@type': 'PostalAddress', addressRegion: 'Kerala', addressCountry: 'IN' },
+  sameAs: [
+    'https://www.linkedin.com/in/shameersn/',
+    'https://github.com/shameersn',
+    'https://www.upwork.com/freelancers/~012d71f6727ae5f21e4',
+  ],
+  hasCredential: {
+    '@type': 'EducationalOccupationalCredential',
+    name: 'AWS Certified AI Practitioner',
+    credentialCategory: 'certification',
+    url: credly,
+    recognizedBy: { '@type': 'Organization', name: 'Amazon Web Services' },
+  },
+};
+---
+<Base
+  title="Shameer SN | Technology architect"
+  description="Shameer SN is a senior technology architect in Kerala, India. He builds websites, mobile apps, AWS backends and AI features."
+  jsonLd={person}
+>
+  <section class="container hero">
+    <div class="stack gap-24 rise">
+      <h1 class="display">Hi, I'm Shameer. I design and build software.</h1>
+      <p class="lead" style="max-width: 580px">I've spent 14 years building websites, mobile apps and the backends behind them. These days most of my time goes into backend systems on AWS, and adding AI to products that real people use. I work from Kerala, India.</p>
+      <div class="btns">
+        <Button href="/about#contact">Get in touch</Button>
+        <Button href="/work/aws-healthcare-platform" variant="secondary">See my work</Button>
+      </div>
+      <p class="label">Architecture · Full stack · AWS · AI · Mentoring</p>
+      <a class="badge" href={credly}>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8421D" stroke-width="2" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.9L7 22l5-3 5 3-1.5-8.1"/></svg>
+        AWS Certified AI Practitioner
+      </a>
+    </div>
+    <SystemDiagram />
+  </section>
+
+  <section class="container section reveal" aria-labelledby="services-h">
+    <div class="stack gap-40">
+      <div class="stack gap-12" style="max-width: 720px">
+        <p class="label">01 · Services</p>
+        <h2 id="services-h">What I can help with</h2>
+        <p class="sub">I take on small jobs as well as big ones. A website, a mobile app, or a second opinion on a system that's grown messy.</p>
+      </div>
+      <div class="grid-auto">
+        {services.map((s) => <ServiceCard title={s.title} text={s.text} icon={s.icon} />)}
+      </div>
+      <p class="muted">I also help teams with <strong style="color: var(--ink)">architecture reviews, technical leadership and mentoring</strong>. <a href="/services">See all services</a></p>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="work-h">
+    <div class="container section reveal">
+      <div class="stack gap-40">
+        <div class="head-row">
+          <div class="stack gap-12">
+            <p class="label">02 · Work</p>
+            <h2 id="work-h">Some things I've worked on</h2>
+          </div>
+          <a href="/work" style="font-weight: 600">All case studies</a>
+        </div>
+        <div class="grid-auto">
+          {cases.map((c) => <CaseCard href={`/work/${c.id}`} label={c.data.home.label} title={c.data.home.title} text={c.data.home.text} tags={c.data.tags} />)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="container section reveal exp" aria-labelledby="exp-h">
+    <div class="stack gap-12">
+      <p class="label">03 · Experience</p>
+      <h2 id="exp-h">How I got here</h2>
+      <p class="sub">I started in 2012 writing HTML, CSS and jQuery. Over the years I moved into backend work, then cloud, then leading teams. Now a lot of my work is AI.</p>
+    </div>
+    <Timeline />
+  </section>
+
+  <section id="skills" class="band" aria-labelledby="skills-h" style="border-bottom: 0">
+    <div class="container section reveal">
+      <div class="stack gap-24" style="gap: 32px">
+        <div class="head-row" style="gap: 24px">
+          <div class="stack gap-12">
+            <p class="label">04 · Skills</p>
+            <h2 id="skills-h">Tools I work with</h2>
+          </div>
+          <a class="cert" href={credly}>
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#A8421D" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.9L7 22l5-3 5 3-1.5-8.1"/><path d="M9.5 9l1.8 1.8L14.5 7.5"/></svg>
+            <span class="stack"><strong>AWS Certified AI Practitioner</strong><span class="verify">Verify on Credly</span></span>
+          </a>
+        </div>
+        <SkillRows />
+      </div>
+    </div>
+  </section>
+
+  <section class="how" aria-labelledby="how-h">
+    <div class="container section reveal">
+      <div class="stack gap-40">
+        <div class="stack gap-12">
+          <p class="label">05 · How I work</p>
+          <h2 id="how-h">How a project usually goes</h2>
+        </div>
+        <Steps />
+      </div>
+    </div>
+  </section>
+
+  <CTA title="Have something in mind?" text="Tell me what you're working on. I usually reply within a couple of days." size="lg" width="640px" />
+</Base>
+
+<style>
+  .hero { padding-top: 88px; padding-bottom: 96px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 48px; align-items: center; }
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+  .badge { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink); text-decoration: none; }
+  .badge:hover { color: var(--laterite); }
+  .head-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px; }
+  .exp { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 48px; align-items: start; }
+  .cert { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 14px 18px; }
+  .cert:hover { border-color: var(--ink); }
+  .verify { font-size: 14px; color: var(--laterite); }
+  .how { border-top: 1px solid var(--line); }
+  @media (max-width: 720px) { .hero { padding-top: 48px; padding-bottom: 64px; gap: 40px; } }
+</style>

@@ -1,0 +1,111 @@
+---
+import Base from '../layouts/Base.astro';
+
+const credly = 'https://www.credly.com/badges/239d00fa-1b4f-43b8-a3fa-5f3a922a6268/public_url';
+const topics = ['Website', 'Web application', 'Mobile app', 'Backend or AWS', 'AI feature', 'Architecture review', 'Just saying hello'];
+---
+<Base
+  title="About and contact | Shameer SN"
+  description="About Shameer SN, a senior technology architect in Kerala, India. Send a message about your project and he will reply within a couple of days."
+  current="about"
+>
+  <section class="container about">
+    <img class="photo" src="/shameer.jpg" width="920" height="920" alt="Shameer SN" />
+    <div class="stack gap-24" style="gap: 20px">
+      <p class="label">About</p>
+      <h1 style="font-size: 48px; line-height: 54px">Hi, I'm Shameer.</h1>
+      <p class="lead" style="color: var(--ink)">I live in Kerala, India. I started out in 2012 building websites, and I still enjoy that work. Over time I moved into backend, AWS and leading teams. Today I'm a Senior Technology Architect, and a lot of my day goes into AI: LLM apps, RAG and agents.</p>
+      <p>Much of my work has been in healthcare and learning products, where the data is sensitive and outages hurt. I've designed a platform that goes through SOC 2 and HIPAA audits, and the notification system for a healthcare app on AWS.</p>
+      <p>I still like writing code. I review pull requests, and I write the tricky parts myself. I use Claude Code, Codex and Cursor every day, but I read every line before it ships.</p>
+      <p>I enjoy teaching too. I try to explain things simply, without the jargon.</p>
+      <div class="grid-auto" style="gap: 16px; margin-top: 8px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr))">
+        <div class="mini"><p class="label">Front end</p><p>React, Next.js, React Native, Expo</p></div>
+        <div class="mini"><p class="label">Back end</p><p>Node.js, NestJS, Python, PostgreSQL, MongoDB, Kafka</p></div>
+        <div class="mini"><p class="label">Cloud + AI</p><p>AWS, CI/CD, LLMs, RAG, agents, Claude Code, Codex, Cursor</p></div>
+      </div>
+      <p class="muted" style="font-size: 14px; line-height: 22px">14+ years building web, mobile and cloud software · led an engineering team of 20 · optimised a Node.js system with 700+ APIs · trained 50+ developers in full-stack JavaScript.</p>
+      <a class="cert" href={credly}>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A8421D" stroke-width="2" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.9L7 22l5-3 5 3-1.5-8.1"/></svg>
+        <span><strong>AWS Certified AI Practitioner</strong> <span class="verify">· Verify on Credly</span></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="think" aria-labelledby="think-h">
+    <div class="container grid2 reveal">
+      <div class="stack gap-16">
+        <h2 id="think-h" class="label">How I think</h2>
+        <div class="point"><p class="pt">Keep the core simple.</p><p class="muted">The parts that must not break get tools I've trusted for years. I try new things around the edges.</p></div>
+        <div class="point"><p class="pt">Treat AI like any other feature.</p><p class="muted">It needs tests, cost limits and logs. And a way to pass the user to a real person when it's unsure.</p></div>
+        <div class="point"><p class="pt">Do security early.</p><p class="muted">Adding it later costs more. When it's there from the start, audits are much easier.</p></div>
+      </div>
+      <div class="stack gap-16">
+        <p class="label">Certification</p>
+        <ul class="plain"><li><a href={credly}>AWS Certified AI Practitioner</a></li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="band contact" aria-labelledby="contact-h" style="border-bottom: 0">
+    <div class="container grid2 reveal" style="padding-top: 88px; padding-bottom: 88px; gap: 56px">
+      <div class="stack gap-24" style="gap: 20px">
+        <p class="label">Contact</p>
+        <h2 id="contact-h">Tell me what you're working on</h2>
+        <p class="muted">I read every message myself and usually reply within a couple of days.</p>
+        <ul class="plain" style="margin-top: 8px; gap: 10px">
+          <li>Email: <a href="mailto:shameersalnaz@gmail.com">shameersalnaz@gmail.com</a></li>
+          <li>LinkedIn: <a href="https://www.linkedin.com/in/shameersn/">linkedin.com/in/shameersn</a></li>
+          <li>GitHub: <a href="https://github.com/shameersn">github.com/shameersn</a></li>
+          <li>Upwork: <a href="https://www.upwork.com/freelancers/~012d71f6727ae5f21e4">upwork.com/freelancers/~012d71f6727ae5f21e4</a></li>
+          <li>Based in Kerala, India (IST).</li>
+        </ul>
+      </div>
+      <form name="contact" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="bot-field" class="form">
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="hp" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+        <div class="two">
+          <label>Your name<input type="text" name="name" autocomplete="name" required /></label>
+          <label>Work email<input type="email" name="email" autocomplete="email" required /></label>
+        </div>
+        <label>Company and website<input type="text" name="company" autocomplete="organization" /></label>
+        <label>What is it about?
+          <select name="topic">{topics.map((t) => <option>{t}</option>)}</select>
+        </label>
+        <label>What's the problem? A few lines is enough.<textarea name="message" rows="5" required></textarea></label>
+        <button type="submit" class="btn btn-primary" style="align-self: flex-start; padding: 0 24px">Send message</button>
+        <p class="muted" style="font-size: 14px">I keep your details private.</p>
+      </form>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .about { padding-top: 80px; padding-bottom: 80px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 56px; align-items: start; }
+  .photo { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius-md); border: 1px solid var(--line); background: var(--surface); }
+  .mini { border-top: 2px solid var(--ink); padding-top: 10px; }
+  .mini p:last-child { margin-top: 4px; }
+  .cert { align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; border: 1px solid var(--line); border-radius: var(--radius-md); padding: 10px 14px; }
+  .cert:hover { border-color: var(--ink); }
+  .verify { color: var(--laterite); }
+  .think { border-top: 1px solid var(--line); }
+  .grid2 { padding-top: 80px; padding-bottom: 80px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 48px; align-items: start; }
+  .point { border-top: 2px solid var(--ink); padding-top: 12px; }
+  .pt { font-weight: 600; font-size: 19px; }
+  .point .muted { margin-top: 4px; }
+  .plain { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .contact { border-top: 1px solid var(--line); }
+  .form { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 32px; display: flex; flex-direction: column; gap: 18px; }
+  .form label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 15px; }
+  .form input, .form select, .form textarea {
+    border: 1px solid var(--muted); border-radius: var(--radius-sm); font: inherit; font-weight: 400; background: var(--on-laterite); color: var(--ink);
+  }
+  .form input, .form select { height: 44px; padding: 0 12px; }
+  .form textarea { padding: 10px 12px; resize: vertical; }
+  .two { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 16px; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  @media (max-width: 720px) {
+    .about { padding-top: 48px; padding-bottom: 64px; gap: 40px; }
+    .grid2 { padding-top: 64px; padding-bottom: 64px; }
+    .form { padding: 24px; }
+  }
+</style>
