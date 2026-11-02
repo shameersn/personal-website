@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CTA from '../components/CTA.astro';
+
+const build = [
+  { title: 'Websites and landing pages', text: 'For small businesses, products and personal brands.', items: ['Fast pages that work well on phones', 'Easy to update, with a simple CMS if needed', 'Basic SEO, analytics and contact forms'] },
+  { title: 'Web applications', text: 'Dashboards, admin panels, portals and SaaS products.', items: ['React, Next.js or Angular front ends', 'Login, roles and multi-tenant setups', 'Payments, email, SMS and video calls'] },
+  { title: 'Mobile apps', text: 'iOS and Android from one codebase.', items: ['React Native and Expo', 'Push notifications, offline use, in-app payments', 'App Store and Play Store release'] },
+  { title: 'APIs and backend', text: 'The server side of your web and mobile apps.', items: ['Node.js and NestJS REST APIs', 'PostgreSQL, MySQL, MongoDB, Redis', 'Integrations: Stripe, Twilio, Zoom, SES and more'] },
+  { title: 'AWS cloud and DevOps', text: "Hosting that's secure, monitored and easy to deploy to.", items: ['ECS, Lambda, S3, CloudFront, SQS/SNS', 'CI/CD pipelines and automated backups', 'Security set up for SOC 2 and HIPAA audits'] },
+  { title: 'AI features', text: 'Built to handle real users, mistakes included.', items: ['Chatbots and assistants', 'RAG search over your own documents', 'Guardrails, logging, cost limits, human hand-off'] },
+];
+const advise = [
+  { title: 'Architecture review', text: "Your product works, but it's slow, costs too much, or every change is painful. I look at the code, the AWS setup and how the team ships. You get a written list of what to fix first." },
+  { title: 'Technical leadership', text: "Part-time help if your team doesn't have a senior architect. Design decisions, code reviews and planning." },
+  { title: 'Mentoring and training', text: "I've trained over 50 developers in full-stack JavaScript. One-to-one or in small groups." },
+];
+const always = [
+  ['A clear plan', ' before any code is written.'],
+  ['Your data stays private.', ' NDA on request.'],
+  ['Weekly updates', ' you can see and test.'],
+  ['You own the code', ' and the accounts.'],
+  ['Docs and a walkthrough', ' at the end.'],
+  ['AI-assisted, human-reviewed.', ' I build faster with Claude Code, Codex and Cursor, and I check every change.'],
+];
+---
+<Base
+  title="Services | Shameer SN"
+  description="Websites, web and mobile apps, APIs, AWS and AI features, plus architecture reviews and mentoring. Small jobs are welcome."
+  current="services"
+>
+  <section class="container intro stack gap-16">
+    <p class="label">Services</p>
+    <h1 style="max-width: 820px">Things I can build or review for you</h1>
+    <p class="lead" style="max-width: 720px">Small jobs are welcome too, like a one-page website or a simple app.</p>
+  </section>
+
+  <section class="container build stack gap-24 reveal" aria-labelledby="build-h">
+    <h2 id="build-h" class="label green">Build</h2>
+    <div class="grid-auto wide">
+      {build.map((s) => <ServiceCard title={s.title} text={s.text} items={s.items} icon="" />)}
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="advise-h">
+    <div class="container advise stack gap-24 reveal">
+      <h2 id="advise-h" class="label green">Advise and lead</h2>
+      <div class="grid-auto">
+        {advise.map((s) => <ServiceCard title={s.title} text={s.text} icon="" plain />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="container always reveal" aria-labelledby="always-h">
+    <div class="stack gap-12">
+      <p class="label">On every project</p>
+      <h2 id="always-h" class="h2-md">A few things I always do</h2>
+    </div>
+    <ul>
+      {always.map(([b, t]) => (
+        <li>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F5B4E" stroke-width="2" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
+          <span><strong>{b}</strong>{t}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <CTA title="Not sure what you need? That's fine. Tell me the problem." size="md" />
+</Base>
+
+<style>
+  .intro { padding-top: 80px; padding-bottom: 56px; }
+  .build { padding-bottom: 64px; }
+  .advise { padding-top: 72px; padding-bottom: 72px; }
+  .wide { grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+  .always { padding-top: 88px; padding-bottom: 88px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 48px; align-items: start; }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 20px; }
+  li { display: flex; gap: 12px; }
+  li svg { flex: none; margin-top: 2px; }
+  @media (max-width: 720px) {
+    .intro { padding-top: 48px; padding-bottom: 40px; }
+    .advise, .always { padding-top: 56px; padding-bottom: 56px; }
+  }
+</style>

@@ -1,0 +1,27 @@
+---
+const rows = [
+  { name: 'Languages', items: ['JavaScript', 'TypeScript', 'Python', 'Go', 'SQL'] },
+  { name: 'Architecture', items: ['Distributed systems', 'Microservices', 'Event-driven design', 'API design', 'System design', 'Multi-tenant SaaS'] },
+  { name: 'Front end', items: ['React', 'Next.js', 'Angular', 'Tailwind CSS', 'HTML, CSS, SASS'] },
+  { name: 'Mobile', items: ['React Native', 'Expo'] },
+  { name: 'Back end and data', items: ['Node.js', 'NestJS', 'GraphQL', 'PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Kafka', 'Cassandra', 'Elasticsearch'] },
+  { name: 'Cloud and DevOps', items: ['AWS', 'Docker', 'Terraform', 'CI/CD', 'Git'] },
+  { name: 'AI', items: ['LLM integration', 'RAG', 'AI agents', 'Guardrails', 'Claude Code', 'Codex', 'Cursor', 'AI-assisted development'] },
+  { name: 'Leadership', items: ['Team leadership', 'Mentoring', 'Technical strategy', 'Code review'] },
+];
+---
+<dl class="rows">
+  {rows.map((r) => (
+    <div class="row">
+      <dt>{r.name}</dt>
+      <dd>{r.items.map((i) => <span class="chip">{i}</span>)}</dd>
+    </div>
+  ))}
+</dl>
+
+<style>
+  .rows { display: flex; flex-direction: column; border-top: 1px solid var(--line); margin: 0; }
+  .row { display: flex; flex-wrap: wrap; gap: 12px 24px; padding: 18px 0; border-bottom: 1px solid var(--line); align-items: flex-start; }
+  dt { flex: 0 0 200px; font-family: var(--font-mono); font-size: 13px; color: var(--muted); padding-top: 4px; }
+  dd { margin: 0; flex: 1 1 320px; min-width: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+</style>

@@ -1,0 +1,82 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import CTA from '../../components/CTA.astro';
+import DiagramAws from '../../components/DiagramAws.astro';
+import DiagramModernisation from '../../components/DiagramModernisation.astro';
+import DiagramNotification from '../../components/DiagramNotification.astro';
+
+export async function getStaticPaths() {
+  const cases = await getCollection('work');
+  return cases.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const d = entry.data;
+const { Content } = await render(entry);
+const diagrams = {
+  'aws-healthcare-platform': DiagramAws,
+  'platform-modernisation': DiagramModernisation,
+  'notification-system': DiagramNotification,
+} as const;
+const Diagram = diagrams[entry.id as keyof typeof diagrams];
+---
+<Base title={`${d.title} | Shameer SN`} description={d.description} current="work">
+  <section class="container narrow head stack gap-24" style="gap: 20px">
+    <a href="/work" style="font-size: 15px">← All work</a>
+    <p class="label">{d.kicker}</p>
+    <h1>{d.title}</h1>
+    <p class="lead">{d.lead}</p>
+  </section>
+
+  <section class="container narrow facts" aria-label="Project facts">
+    <dl>
+      {d.facts.map((f) => (
+        <div><dt class="label">{f.label}</dt><dd>{f.value}</dd></div>
+      ))}
+    </dl>
+  </section>
+
+  <section class="container narrow prose reveal">
+    <Content />
+    <figure class="diagram-fig">
+      <Diagram />
+      <figcaption>{d.figureCaption}</figcaption>
+    </figure>
+  </section>
+
+  <section class="container narrow result reveal" aria-labelledby="result-h">
+    <p class="label accent">03 · THE RESULT</p>
+    <h2 id="result-h" class="h2-sm">{d.resultHeading}</h2>
+    <div class="stats">
+      {d.stats.map((s) => (
+        <div><p class:list={['num', { hot: s.hot }]}>{s.value}</p><p class="muted">{s.caption}</p></div>
+      ))}
+    </div>
+  </section>
+
+  <CTA title={d.ctaTitle} size="sm" width="520px" />
+</Base>
+
+<style>
+  .narrow { max-width: 880px; }
+  .head { padding-top: 72px; padding-bottom: 48px; }
+  .facts { padding-bottom: 56px; }
+  dl { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  dl > div { padding: 20px 16px 20px 0; }
+  dd { margin: 4px 0 0; font-weight: 600; }
+  .prose { padding-bottom: 56px; }
+  .prose :global(p), .prose :global(ul) { margin: 16px 0 0; }
+  .prose :global(p.label) { margin-top: 56px; }
+  .prose :global(p.label:first-child) { margin-top: 0; }
+  .prose :global(h2) { margin: 16px 0 0; font-size: var(--h2-size); line-height: var(--h2-line); font-weight: 600; letter-spacing: 0; }
+  .prose :global(ul) { padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
+  .prose :global(h2 + p), .prose :global(h2 + ul) { margin-top: 16px; }
+  .diagram-fig { margin: 32px 0 0; }
+  .result { padding-bottom: 72px; display: flex; flex-direction: column; gap: 16px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 24px; }
+  .stats > div { border-top: 2px solid var(--ink); padding-top: 12px; }
+  .num { font-size: 36px; line-height: 40px; font-weight: 700; }
+  .num.hot { color: var(--laterite); }
+  @media (max-width: 720px) { .head { padding-top: 48px; } .result { padding-bottom: 56px; } }
+</style>

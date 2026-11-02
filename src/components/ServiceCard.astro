@@ -1,0 +1,20 @@
+---
+interface Props { title: string; text: string; icon: string; items?: string[]; plain?: boolean }
+const { title, text, icon, items, plain = false } = Astro.props;
+---
+<article class:list={['card', 'lift', { 'on-paper': plain }]}>
+  {icon && (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F5B4E" stroke-width="1.5" aria-hidden="true" set:html={icon} />
+  )}
+  <h3>{title}</h3>
+  <p>{text}</p>
+  {items && (
+    <ul>
+      {items.map((i) => <li>{i}</li>)}
+    </ul>
+  )}
+</article>
+
+<style>
+  ul { padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+</style>
