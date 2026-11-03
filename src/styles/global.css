@@ -75,7 +75,8 @@ h3 { font-size: 22px; line-height: 28px; font-weight: 600; }
 .btn-secondary:hover { background: var(--ink); color: var(--paper); }
 .btn-sm { height: 44px; padding: 0 18px; }
 .btn-night { height: 52px; padding: 0 26px; background: var(--laterite-on-night); color: var(--on-laterite-on-night); font-weight: 700; }
-.btn-night:hover { background: var(--paper); color: var(--ink); }
+.night .btn-night { color: var(--on-laterite-on-night); }
+.btn-night:hover, .night .btn-night:hover { background: var(--paper); color: var(--ink); }
 
 /* Cards, tags, chips */
 .card {
